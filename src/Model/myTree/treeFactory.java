@@ -1,28 +1,24 @@
 package myTree;
 
-import java.util.Map;
-
-import structure5.RedBlackSearchTree;
-import structure5.SplayTree;
-
-public class mapFactory {
+public class treeFactory {
     
      /**
      * Diseño de fabrica según la selección de usuario 
      * @param userOp Opcion del usuario 
      * @return Tipo de arbol a utilizar por el usuario 
      */
-    public Map getTypeMap(int userOp){
+    public treeStructure getTypeMap(int userOp){
 
-        Map typeMap = null;  
+        treeStructure typeMap = null;  
 
         switch(userOp){
 
             case 1: 
-                typeMap = (Map) new RedBlackSearchTree(); 
+                typeMap = new myRedBlackTree(); 
+                
                 break; 
             case 2: 
-                typeMap = (Map) new SplayTree(); 
+                typeMap = new mySplayTree(); 
                 break; 
             case 3: 
                  

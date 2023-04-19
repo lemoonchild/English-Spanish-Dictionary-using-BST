@@ -4,7 +4,6 @@ import java.io.FileReader;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.HashMap;
 
 public class readFile{
 
@@ -13,33 +12,30 @@ public class readFile{
      * @param path Ubicacion del archivo 
      * @return Hashmap con valores del diccionario 
      */
-    public HashMap<String, String> readDictionary(String path) {
+    public ArrayList<String> readDictionary(String path) {
 
-        HashMap<String, String> diccionario = new HashMap<>();
+        ArrayList<String> diccionario = new ArrayList<String>();
         
-        try (BufferedReader buffreader = new BufferedReader(new FileReader(path))) {
-    
-            String words;
-        
-            while ((words = buffreader.readLine()) != null) {
-                // Separar la palabra en ingles y sus traduccion en español 
-                String[] wordAndTranslations = words.split(",");
-                // Verificar si la línea tiene el formato esperado
-                if (wordAndTranslations.length != 2) {
-                    System.out.println("La línea no tiene el formato esperado: " + words);
-                    continue;
-                }
-                String enWord = wordAndTranslations[0];
-                String spanWord = wordAndTranslations[1];
-    
-                diccionario.put(enWord, spanWord);
-            
+        try {
+            FileReader file = new FileReader(path);
+            BufferedReader reader = new BufferedReader(file);
+            String line = reader.readLine();
+
+            while (line != null) {
+
+                diccionario.add(line);
+                line = reader.readLine();
+
             }
 
+            reader.close();
+            file.close();
+
         } catch (IOException e) {
-            System.out.println("Error al leer el archivo: " + e.getMessage());
+            System.out.println("An error occurred reading the file: " + path);
+            e.printStackTrace();
         }
-            
+
         return diccionario;
     }
     
