@@ -2,7 +2,6 @@ package myTree;
 
 import java.util.Map;
 
-import structure5.BinarySearchTree;
 import structure5.RedBlackSearchTree;
 import structure5.SplayTree;
 
