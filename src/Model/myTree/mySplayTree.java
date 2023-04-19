@@ -1,37 +1,51 @@
 package myTree;
 
+import java.util.Comparator;
+
+import structure5.SplayTree;
+
 public class mySplayTree<T extends Comparable<T>> implements treeStructure<T> {
 
-    @Override
-    public void add(T value) {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'add'");
-    }
+	private SplayTree<T> mySplayTree;
+	
+	public mySplayTree() {
+		mySplayTree = new SplayTree<T>(); 
+	}
+	
+	public mySplayTree(Comparator<T> comparador) {
+		mySplayTree = new SplayTree<T>(comparador); 
+	}
+	
+	@Override
+	public void add(T value) {
+		mySplayTree.add(value);
+		
+	}
 
-    @Override
-    public T get(T key) {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'get'");
-    }
+	@Override
+	public T get(T key) {
+		
+		return mySplayTree.get(key);
+	}
 
-    @Override
-    public T remove(T key) {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'remove'");
-    }
+	@Override
+	public T remove(T key) {
+		
+		return mySplayTree.remove(key);
+	}
 
-    @Override
-    public int count() {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'count'");
-    }
+	@Override
+	public int count() {
+		return mySplayTree.size();
+	}
 
-    @Override
-    public boolean isEmpty() {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'isEmpty'");
-    }
+	@Override
+	public boolean isEmpty() {
+		return mySplayTree.isEmpty();
+	}
 
-
+	public SplayTree<T> getInternalTree(){
+		return mySplayTree;
+	} 
 
 }
