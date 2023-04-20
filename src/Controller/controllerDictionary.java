@@ -7,58 +7,56 @@ import myTree.treeStructure;
 
 public class controllerDictionary {
 
-    public ArrayList<Word> createWords(ArrayList<String> dictionary) {
+    public ArrayList<Word> createWord(ArrayList<String[]> dictionary, treeStructure structure){
+        
+        ArrayList<Word> finalWords = new ArrayList<>(); 
 
-        ArrayList<Word> finalWords = new ArrayList<>();
-    
-        for (String words : dictionary) {
-            
-            String[] wordsToUse = words.trim().split(",");
-    
-            if (wordsToUse.length >= 2) {
-                finalWords.add(new Word(wordsToUse[0], wordsToUse[1]));
-            }
+        for (String[] row : dictionary) {
+
+            String englishWord = row[0];
+            String spanishWord = row[1];
+
+            Word wordsToUse = new Word(englishWord, spanishWord);
+            finalWords.add(wordsToUse);
+
         }
-    
-        return finalWords;
+
+        return finalWords; 
+
     }
-
-    public void translateWord(ArrayList<Word> wordsToUse, ArrayList<Word> userInput, treeStructure structure){
+    public void translateWord(Word words, ArrayList<Word> dictionaryWords, ArrayList<String> userInput, treeStructure structure){
         
-        for (Word word : wordsToUse) {
+        for (Word dictWords : dictionaryWords) {
 
-            structure.add(word);
+            structure.add(dictWords);
 
         }
-        
+
         String result = "";
-        
-        ArrayList<Word> newUserInput = new ArrayList<Word>(userInput);
+        ArrayList<String> newUserInput = new ArrayList<String>(userInput);
 
         for (int i = 0; i < userInput.size(); i++) {
+            
+            String userword = userInput.get(i); 
 
-            Word word = userInput.get(i);
-
-            if (structure.contains(word)) {
-
-                Word translatedWord = structure.get(word);
-                newUserInput.set(i, translatedWord.getSpanishWord()); // Actualizar el valor original en userInput
+            if(words.compareTo((Word) userword) == 0){
+        
+                newUserInput.set(i, words.getSpanishWord()); // Actualizar el valor original en userInput
 
             } else { // no lo encontró
-                Word untranslatedWord = new Word("*" + word.getEnglishWord() + "*", null);
+                String untranslatedWord = "*" + words.getEnglishWord() + "*";
                 newUserInput.set(i, untranslatedWord);
             }
-            
-  
-        } 
-
-        for (Word element : newUserInput) {
-            result += element + " ";
+        
+        for (String element : newUserInput) {
+                result += element + " ";
         }
 
         System.out.println("\tOracion traducida: " + result + "\n");
 
-    } 
+        } 
 
+    }
 }
+
 
