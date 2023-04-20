@@ -1,10 +1,9 @@
 package UI;
 
 import java.util.Scanner;
-
+import Model.*;
 import Controller.controllerDictionary;
 import Controller.readFile;
-import myTree.treeFactory;
 
 public class UI {
     
@@ -19,7 +18,7 @@ public class UI {
         System.out.println("\tAhora con más palabras implementadas");
 
         System.out.println("\n¿Qué tipo de árbol le gustaría utilizar?");
-        System.out.println("\t1. RedBlacTree");
+        System.out.println("\t1. RedBlackTree");
         System.out.println("\t2. SplayTree");
         System.out.println("\t3. AVL tree");
 
@@ -32,7 +31,7 @@ public class UI {
 
         System.out.println("\nA continuación, el resultado de su texto ingresado al txt: ");
 
-        controller.translateWord(controller.createWords(readFile.readDictionary(dictionary)), readFile.readUITXT(userPhrase), treeFactory.getTypeMap(type));
+        controller.translateWord(controller.createWord(readFile.readDictionary(dictionary)), readFile.readUITXT(userPhrase), treeFactory.getTypeMap(type));
 
 
     }

@@ -5,8 +5,6 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Arrays;
 
-import myTree.Word;
-
 public class readFile{
 
     /**
@@ -29,7 +27,7 @@ public class readFile{
                 String[] words = line.trim().split(",");
                 diccionario.add(words);
                 line = reader.readLine();
-                
+
             }
             reader.close();
             file.close();

@@ -1,15 +1,17 @@
 package Controller;
 
-import java.util.ArrayList;
+import Model.Word;
+import Model.treeStructure;
 
-import myTree.Word;
-import myTree.treeStructure;
+import java.util.ArrayList;
 
 public class controllerDictionary {
 
-    public ArrayList<Word> createWord(ArrayList<String[]> dictionary, treeStructure structure){
+    public ArrayList<String> verify = new ArrayList<>();
+
+    public ArrayList<Word> createWord(ArrayList<String[]> dictionary){
         
-        ArrayList<Word> finalWords = new ArrayList<>(); 
+        ArrayList<Word> finalWords = new ArrayList<>();
 
         for (String[] row : dictionary) {
 
@@ -18,13 +20,14 @@ public class controllerDictionary {
 
             Word wordsToUse = new Word(englishWord, spanishWord);
             finalWords.add(wordsToUse);
+            verify.add(englishWord); 
 
         }
 
         return finalWords; 
 
     }
-    public void translateWord(Word words, ArrayList<Word> dictionaryWords, ArrayList<String> userInput, treeStructure structure){
+    public void translateWord(ArrayList<Word> dictionaryWords, ArrayList<String> userInput, treeStructure<Word> structure){
         
         for (Word dictWords : dictionaryWords) {
 
@@ -33,28 +36,27 @@ public class controllerDictionary {
         }
 
         String result = "";
-        ArrayList<String> newUserInput = new ArrayList<String>(userInput);
+        ArrayList<String> newUserInput = new ArrayList<String>();
 
         for (int i = 0; i < userInput.size(); i++) {
             
             String userword = userInput.get(i); 
 
-            if(words.compareTo((Word) userword) == 0){
-        
-                newUserInput.set(i, words.getSpanishWord()); // Actualizar el valor original en userInput
+            if(verify.contains(userword)){
 
+                Word val2 = structure.get(new Word(userword, ""));
+                newUserInput.add(val2.getSpanishWord());
+                
             } else { // no lo encontró
-                String untranslatedWord = "*" + words.getEnglishWord() + "*";
-                newUserInput.set(i, untranslatedWord);
+                String untranslatedWord = "*" + userword + "*";
+                newUserInput.add(untranslatedWord);
             }
-        
-        for (String element : newUserInput) {
-                result += element + " ";
+
         }
-
+        for (String element : newUserInput) {
+            result += element + " ";
+        }
         System.out.println("\tOracion traducida: " + result + "\n");
-
-        } 
 
     }
 }
