@@ -8,7 +8,7 @@ package structure5;
  * from several milliseconds to several seconds apart.  When measuring
  * events that take considerable time (> 1/10th of a second) it is important
  * to counteract the effect of scheduling of other system processes.
- *
+ * <p>
  * A Clock has the following operations:
  *  <ul>
  *  <li> reset - clear the clock and reset accumulated time to zero
@@ -16,7 +16,7 @@ package structure5;
  *  <li> stop  - stop the clock (and therefore stop accumulating time)
  *  <li> read  - read a stopped clock to get accumulated time in milliseconds.
  * </ul>
- *
+ * <p>
  * typical use:
  * <pre>
  *    Clock timer = new Clock();
@@ -26,7 +26,7 @@ package structure5;
  *    System.out.println("Time to count to 100000: "+timer.{@link #read()}+" seconds.");
  * </pre>
  *
- * @version $Id: Clock.java 31 2007-08-06 17:19:56Z bailey $
+ * @version $Id : Clock.java 31 2007-08-06 17:19:56Z bailey $
  * @author, 2001 duane a. bailey
  */
 public class Clock
@@ -84,10 +84,9 @@ public class Clock
     /**
      * Read the value on the stop watch.
      *
+     * @return A double representing the number of seconds elapsed.
      * @pre clock is stopped
      * @post returns the accumulated time on the clock
-     * 
-     * @return A double representing the number of seconds elapsed.
      */
     public double read()
     {

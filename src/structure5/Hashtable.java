@@ -6,6 +6,7 @@ package structure5;
 import java.util.Iterator;
 import java.lang.Iterable;
 import java.lang.Math;
+
 /**
  * Implements a dictionary as a table of hashed key-value pairs.
  * Collisions are resolved through linear probing.  Values used
@@ -13,12 +14,12 @@ import java.lang.Math;
  * the same value when two keys are "equals".  Initially, a table of suggested
  * size is allocated.  It will be expanded as the load factor (ratio of
  * pairs to entries) grows to meet maximumLoadFactor.
- * <P>
+ * <p>
  * Example Usage:
- * <P>
- * To create a hashtable by reading a collection of words and 
+ * <p>
+ * To create a hashtable by reading a collection of words and
  * definitions from System.in we could use the following:
- * <P> 
+ * <p>
  * <pre>
  * public static void main (String[] argv){
  *      Hashtable dict = new {@link #Hashtable()};
@@ -29,13 +30,16 @@ import java.lang.Math;
  *          word = r.readLine();
  *          System.out.println("Enter a definition: ");
  *          def = r.readLine();
- *          dict.{@link #put(Object,Object) put(word,def)};
+ *          dict.{@link #put(Object, Object) put(word,def)};
  *          System.out.println("Enter a word: ");
  *      }
  *      System.out.println(dict);
  * }
  * </pre>
- * @version $Id: Hashtable.java 34 2007-08-09 14:43:44Z bailey $
+ *
+ * @param <K> the type parameter
+ * @param <V> the type parameter
+ * @version $Id : Hashtable.java 34 2007-08-09 14:43:44Z bailey $
  * @author, 2001 duane a. bailey
  * @see ChainedHashtable
  */
@@ -68,11 +72,9 @@ public class Hashtable<K,V> implements Map<K,V>, Iterable<V>
      * be expanded appropriately.  It is probably best if the capacity
      * is prime.  Table is initially empty.
      *
-     * @pre initialCapacity > 0
-     * @post constructs a new Hashtable
-     *       holding initialCapacity elements
-     * 
      * @param initialCapacity The initial capacity of the hash table.
+     * @pre initialCapacity > 0
+     * @post constructs a new Hashtable       holding initialCapacity elements
      */
     public Hashtable(int initialCapacity)
     {
@@ -196,15 +198,20 @@ public class Hashtable<K,V> implements Map<K,V>, Iterable<V>
     /**
      * Get a traversal over the keys of the hashtable.
      *
-     * @post returns traversal to traverse the keys of hash table;
-     * 
      * @return a traversal over the key values appearing within table.
+     * @post returns traversal to traverse the keys of hash table;
      */
     public Iterator<K> keys()
     {
         return new KeyIterator<K,V>(new HashtableIterator<K,V>(data));
     }
 
+    /**
+     * Locate int.
+     *
+     * @param key the key
+     * @return the int
+     */
     protected int locate(K key)
     {
         // compute an initial hash code
@@ -299,6 +306,8 @@ public class Hashtable<K,V> implements Map<K,V>, Iterable<V>
     }
 
     /**
+     * Extend.
+     *
      * @post expands the hashtable to reduce loading
      */
     protected void extend()

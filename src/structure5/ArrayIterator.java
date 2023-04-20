@@ -2,13 +2,13 @@ package structure5;
 import java.util.Iterator;
 
 /**
- * A conveniece class that provies a mechanism to iterate over 
+ * A conveniece class that provies a mechanism to iterate over
  * arrays that is analogous to the iteration techniques employed by
- * the structures in this package. 
- * <P>
+ * the structures in this package.
+ * <p>
  * Example Usage:
- * <P>
- * To prove that loops are faster than iteration we could use the 
+ * <p>
+ * To prove that loops are faster than iteration we could use the
  * following:
  * <pre>
  * public static void main(String[] argv){
@@ -17,19 +17,19 @@ import java.util.Iterator;
  *
  *      //an array over which to iterate
  *      String[] test = new String[10000000];
- *      
+ *
  *      //longs to calculate lenght of computation
  *      long start, finish, iteration, looping;
  *
  *      //populate test array with our test string
  *      for(int i=0; i&lt;test.length; i++) test[i] = testString;
- *      
+ *
  *      //compute test for iteration
  *      start = System.nanoTime();
  *      for({@link java.util.Iterator Iterator} i = new {@link #ArrayIterator(Object[]) ArrayIterator(test)}; i.{@link #hasNext()};i.{@link #next()}){}
  *      finish = System.nanoTime();
  *      iteration = finish - start;
- *      System.out.println("Iteration over array took " + iteration + 
+ *      System.out.println("Iteration over array took " + iteration +
  *                         " nanoseconds to perform.");
  *
  *      //compute test for looping
@@ -37,35 +37,47 @@ import java.util.Iterator;
  *      for(int i=0; i&lt;test.length; i++){}
  *      finish = System.nanoTime();
  *      looping = finish - start;
- *      System.out.println("Looping over array took " + (finish-start) + 
+ *      System.out.println("Looping over array took " + (finish-start) +
  *                         " nanoseconds to perform.");
- *      
+ *
  *      System.out.println("Iterators are " + (iteration/(double)looping) + " times " +
  *                         "slower than loops.");
  * }
  * </pre>
+ *
+ * @param <E> the type parameter
  */
 public class ArrayIterator<E> extends AbstractIterator<E>
 {
-    /** The array over which this iterator iterates */
+    /**
+     * The array over which this iterator iterates
+     */
     protected E data[];
 
-    /** The index of the first item in the iteration*/
+    /**
+     * The index of the first item in the iteration
+     */
     protected int head;
-    
-    /** The number of elements in the array over which to iterate */
+
+    /**
+     * The number of elements in the array over which to iterate
+     */
     protected int count;
-    
-    /** The current item in the iteration */
+
+    /**
+     * The current item in the iteration
+     */
     protected int current;
 
-    /** The number of items remaining in the itearation*/
+    /**
+     * The number of items remaining in the itearation
+     */
     protected int remaining;
 
-    /** 
-     * Construct an iterator that iterates over the entire contents  
+    /**
+     * Construct an iterator that iterates over the entire contents
      * of an array.
-     * 
+     *
      * @param source The array over which to iterate.
      * @return An iterator over the entire array.
      */
@@ -79,9 +91,8 @@ public class ArrayIterator<E> extends AbstractIterator<E>
      * a specified portion of the source array.
      *
      * @param source The array over which to iterate.
-     * @param first The index at which we will start our iteration.
-     * @param size The number of elements following that start index 
-     *        that are to be iterated over.
+     * @param first  The index at which we will start our iteration.
+     * @param size   The number of elements following that start index         that are to be iterated over.
      * @return An iterator over a specified poriton of the array.
      */
     @SuppressWarnings("unchecked")
@@ -145,6 +156,8 @@ public class ArrayIterator<E> extends AbstractIterator<E>
 
     /**
      * test code to prove that iterators are slower than for loops
+     *
+     * @param argv the argv
      */
     public static void main(String[] argv){
         //a randomly generated test string

@@ -5,12 +5,16 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Arrays;
 
+/**
+ * The type Read file.
+ */
 public class readFile{
 
     /**
-     * Metodo para guardar las palabras del diccionario en el txt dentro de un hashmap
-     * @param path Ubicacion del archivo 
-     * @return Hashmap con valores del diccionario 
+     * Metodo para guardar las palabras del diccionario
+     *
+     * @param path Ubicacion del archivo
+     * @return ArrayList con valores del diccionario
      */
     public ArrayList<String[]> readDictionary(String path) {
 
@@ -37,12 +41,13 @@ public class readFile{
         }
         return diccionario;
     }
-    
-    
+
+
     /**
-     * Metodo para leer la oracion ingresada por el usuario dentro del txt 
-     * @param path Ubicacion del archivo 
-     * @return Arraylist con oracion ingresada por usuario 
+     * Metodo para leer la oracion ingresada por el usuario dentro del txt
+     *
+     * @param path Ubicacion del archivo
+     * @return Arraylist con oracion ingresada por usuario
      */
     public ArrayList<String> readUITXT(String path){
         ArrayList<String> wordsToTrad = new ArrayList<>();

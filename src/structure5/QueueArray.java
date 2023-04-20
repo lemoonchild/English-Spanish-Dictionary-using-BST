@@ -6,17 +6,17 @@ import java.util.Iterator;
 
 /**
  * An implementation of queues based on arrays.
- * The head of the queue starts out at the head of the array, allowing the queue to 
- * grow and shrink in constant time. 
- * This queue implementation is ideal for 
- * applications that require a queue with a known maximum size that expands 
+ * The head of the queue starts out at the head of the array, allowing the queue to
+ * grow and shrink in constant time.
+ * This queue implementation is ideal for
+ * applications that require a queue with a known maximum size that expands
  * in constant time.
- * <P>
+ * <p>
  * Example usage:
- * <P>
+ * <p>
  * To compute the sum of the unicode value of every character in the standard input
  * we could use the following:
- * <P>
+ * <p>
  * <pre>
  * public static void main(String[] arguments)
  * {
@@ -40,10 +40,12 @@ import java.util.Iterator;
  *     System.out.println("Total Value: " + unicodeSum);
  * }
  * </pre>
+ *
+ * @param <E> the type parameter
+ * @version $Id : QueueArray.java 35 2007-08-09 20:38:38Z bailey $
+ * @author, 2001 duane a. bailey
  * @see QueueList
  * @see QueueVector
- * @version $Id: QueueArray.java 35 2007-08-09 20:38:38Z bailey $
- * @author, 2001 duane a. bailey
  */
 public class QueueArray<E> extends AbstractQueue<E> implements Queue<E>
 {
@@ -63,9 +65,8 @@ public class QueueArray<E> extends AbstractQueue<E> implements Queue<E>
     /**
      * Construct a queue holding at most size elements.
      *
-     * @post create a queue capable of holding at most size values
-     * 
      * @param size The maximum size of the queue.
+     * @post create a queue capable of holding at most size values
      */
     public QueueArray(int size)
     {
@@ -148,13 +149,12 @@ public class QueueArray<E> extends AbstractQueue<E> implements Queue<E>
         count = 0;
         head = 0;
     }
-    
+
     /**
      * Determines if the queue is not able to accept any new values.
      *
-     * @post returns true if the queue is at its capacity
-     * 
      * @return True iff the queue is full.
+     * @post returns true if the queue is at its capacity
      */
     public boolean isFull()
     {

@@ -6,11 +6,12 @@ import java.util.Iterator;
 
 /**
  * This class implements a single node of a binary tree.  It is a
- * recursive structure.  Relationships between nodes are 
+ * recursive structure.  Relationships between nodes are
  * doubly linked, with parent and child references.  Many characteristics
  * of trees may be detected with static methods.
  *
- * @version $Id: BinaryTree.java 34 2007-08-09 14:43:44Z bailey $
+ * @param <E> the type parameter
+ * @version $Id : BinaryTree.java 34 2007-08-09 14:43:44Z bailey $
  * @author, 2001 duane a. bailey
  * @see structure.BinaryTree
  * @see structure.BinarySearchTree
@@ -28,14 +29,17 @@ public class BinaryTree<E>
     /**
      * The left child of this node, or an "empty" node
      */
-    protected BinaryTree<E> left, right; // children of node
+    protected BinaryTree<E> left, /**
+ * The Right.
+ */
+right; // children of node
 
     /**
      * A one-time constructor, for constructing empty trees.
      * Space efficiencies are possible if empty trees are reused.
      *
-     * @post Constructor that generates an empty node
      * @return an empty node
+     * @post Constructor that generates an empty node
      */
     public BinaryTree()
     {
@@ -47,8 +51,8 @@ public class BinaryTree<E>
      * Constructs a tree node with no children.  Value of the node
      * and subtrees are provided by the user
      *
-     * @post Returns a tree referencing value and two empty subtrees
      * @param value A (possibly null) value to be referenced by node
+     * @post Returns a tree referencing value and two empty subtrees
      */
     public BinaryTree(E value)
     {
@@ -63,10 +67,10 @@ public class BinaryTree<E>
      * Constructs a tree node with two children.  Value of the node
      * and subtrees are provided by the user.
      *
-     * @post Returns a tree referencing value and two subtrees
      * @param value A (possibly null) value to be referenced by node
-     * @param left The subtree to be left subtree of node
+     * @param left  The subtree to be left subtree of node
      * @param right The subtree to be right subtree of node
+     * @post Returns a tree referencing value and two subtrees
      */
     public BinaryTree(E value, BinaryTree<E> left, BinaryTree<E> right)
     {
@@ -81,9 +85,8 @@ public class BinaryTree<E>
     /**
      * Get left subtree of current node
      *
-     * @post Returns reference to (possibly empty) left subtree
-     *
      * @return The left subtree of this node
+     * @post Returns reference to (possibly empty) left subtree
      */
     public BinaryTree<E> left()
     {
@@ -93,9 +96,8 @@ public class BinaryTree<E>
     /**
      * Get right subtree of current node
      *
-     * @post Returns reference to (possibly empty) right subtree
-     * 
      * @return The right subtree of this node
+     * @post Returns reference to (possibly empty) right subtree
      */
     public BinaryTree<E> right()
     {
@@ -105,23 +107,20 @@ public class BinaryTree<E>
     /**
      * Get reference to parent of this node
      *
-     * @post Returns reference to parent node, or null
-     * 
      * @return Reference to parent of this node
+     * @post Returns reference to parent node, or null
      */
     public BinaryTree<E> parent()
     {
         return parent;
     }
-    
+
     /**
      * Update the left subtree of this node.  Parent of the left subtree
      * is updated consistently.  Existing subtree is detached
      *
-     * @post Sets left subtree to newLeft
-     *       re-parents newLeft if not null
-     * 
      * @param newLeft The root of the new left subtree
+     * @post Sets left subtree to newLeft       re-parents newLeft if not null
      */
     public void setLeft(BinaryTree<E> newLeft)
     {
@@ -135,10 +134,8 @@ public class BinaryTree<E>
      * Update the right subtree of this node.  Parent of the right subtree
      * is updated consistently.  Existing subtree is detached
      *
-     * @post Sets left subtree to newRight
-     *       re-parents newRight if not null
-     * 
      * @param newRight A reference to the new right subtree of this node
+     * @post Sets left subtree to newRight       re-parents newRight if not null
      */
     public void setRight(BinaryTree<E> newRight)
     {
@@ -151,9 +148,8 @@ public class BinaryTree<E>
     /**
      * Update the parent of this node
      *
-     * @post Re-parents this node to parent reference, or null
-     *
      * @param newParent A reference to the new parent of this node
+     * @post Re -parents this node to parent reference, or null
      */
     protected void setParent(BinaryTree<E> newParent)
     {
@@ -165,8 +161,8 @@ public class BinaryTree<E>
     /**
      * Returns the number of descendants of node
      *
-     * @post Returns the size of the subtree
      * @return Size of subtree
+     * @post Returns the size of the subtree
      */
     public int size()
     {
@@ -177,8 +173,8 @@ public class BinaryTree<E>
     /**
      * Returns reference to root of tree containing n
      *
-     * @post Returns the root of the tree node n
      * @return Root of tree
+     * @post Returns the root of the tree node n
      */
     public BinaryTree<E> root()
     {
@@ -190,8 +186,8 @@ public class BinaryTree<E>
      * Returns height of node in tree.  Height is maximum path
      * length to descendant
      *
-     * @post Returns the height of a node in its tree
      * @return The height of the node in the tree
+     * @post Returns the height of a node in its tree
      */
     public int height()
     {
@@ -203,8 +199,8 @@ public class BinaryTree<E>
      * Compute the depth of a node.  The depth is the path length
      * from node to root
      *
-     * @post Returns the depth of a node in the tree
      * @return The path length to root of tree
+     * @post Returns the depth of a node in the tree
      */
     public int depth()
     {
@@ -216,8 +212,8 @@ public class BinaryTree<E>
      * Returns true if tree is full.  A tree is full if adding a node
      * to tree would necessarily increase its height
      *
-     * @post Returns true iff the tree rooted at node is full
      * @return True iff tree is full
+     * @post Returns true iff the tree rooted at node is full
      */
     public boolean isFull()
     {
@@ -228,20 +224,21 @@ public class BinaryTree<E>
 
     /**
      * Returns true if tree is empty.
-     * @post Returns true iff the tree rooted at node is empty
+     *
      * @return True iff tree is empty
+     * @post Returns true iff the tree rooted at node is empty
      */
     public boolean isEmpty()
     {
         return val == null;
     }
-    
+
     /**
      * Return whether tree is complete.  A complete tree has minimal height
-     * and any holes in tree would appear in last level to right.       
+     * and any holes in tree would appear in last level to right.
      *
-     * @post Returns true iff the tree rooted at node is complete
      * @return True iff the subtree is complete
+     * @post Returns true iff the tree rooted at node is complete
      */
     public boolean isComplete()
     {
@@ -270,8 +267,8 @@ public class BinaryTree<E>
      * balanced iff at every node the difference in heights of subtrees is
      * no greater than one
      *
-     * @post Returns true iff the tree rooted at node is balanced
      * @return True if tree is height balanced
+     * @post Returns true iff the tree rooted at node is balanced
      */
     public boolean isBalanced()
     {
@@ -283,9 +280,8 @@ public class BinaryTree<E>
     /**
      * Generate an in-order iterator of subtree
      *
+     * @return In -order iterator on subtree rooted at this
      * @post Returns an in-order iterator of the elements
-     * 
-     * @return In-order iterator on subtree rooted at this
      */
     public Iterator<E> iterator()
     {
@@ -295,10 +291,8 @@ public class BinaryTree<E>
     /**
      * Return an iterator to traverse nodes of subtree in-order
      *
-     * @post The elements of the binary tree rooted at node are
-     *       traversed in preorder
-     * 
      * @return AbstractIterator to traverse subtree
+     * @post The elements of the binary tree rooted at node are       traversed in preorder
      */
     public AbstractIterator<E> preorderIterator()
     {
@@ -308,10 +302,8 @@ public class BinaryTree<E>
     /**
      * Return an iterator to traverse the elements of subtree in-order
      *
-     * @post The elements of the binary tree rooted at node node are
-     *       traversed in inorder
-     * 
      * @return An in-order iterator over descendants of node
+     * @post The elements of the binary tree rooted at node node are       traversed in inorder
      */
     public AbstractIterator<E> inorderIterator()
     {
@@ -321,11 +313,9 @@ public class BinaryTree<E>
     /**
      * Return an iterator to traverse the elements of subtree in post-order
      *
-     * @pre None
-     * @post The elements of the binary tree rooted at node node are
-     *       traversed in postorder
-     * 
      * @return An iterator that traverses descendants of node in postorder
+     * @pre None
+     * @post The elements of the binary tree rooted at node node are       traversed in postorder
      */
     public AbstractIterator<E> postorderIterator()
     {
@@ -335,11 +325,9 @@ public class BinaryTree<E>
     /**
      * Method to return a level-order iterator of subtree
      *
-     * @pre None
-     * @post The elements of the binary tree rooted at node node are
-     *       traversed in levelorder
-     * 
      * @return An iterator to traverse subtree in level-order
+     * @pre None
+     * @post The elements of the binary tree rooted at node node are       traversed in levelorder
      */
     public AbstractIterator<E> levelorderIterator()
     {
@@ -406,9 +394,8 @@ public class BinaryTree<E>
     /**
      * Determine if this node is a left child
      *
-     * @post Returns true if this is a left child of parent
-     * 
      * @return True iff this node is a left child of parent
+     * @post Returns true if this is a left child of parent
      */
     public boolean isLeftChild()
     {
@@ -419,9 +406,8 @@ public class BinaryTree<E>
     /**
      * Determine if this node is a right child
      *
-     * @post Returns true if this is a right child of parent
-     * 
      * @return True iff this node is a right child of parent
+     * @post Returns true if this is a right child of parent
      */
     public boolean isRightChild()
     {
@@ -432,9 +418,8 @@ public class BinaryTree<E>
     /**
      * Returns value associated with this node
      *
-     * @post Returns value associated with this node
-     * 
      * @return The node's value
+     * @post Returns value associated with this node
      */
     public E value()
     {
@@ -444,8 +429,8 @@ public class BinaryTree<E>
     /**
      * Set's value associated with this node
      *
-     * @post Sets the value associated with this node
      * @param value The new value of this node
+     * @post Sets the value associated with this node
      */
     public void setValue(E value)
     {
@@ -462,11 +447,11 @@ public class BinaryTree<E>
         if (value() != null) result += value().hashCode();
         return result;
     }
-    
+
     /**
      * Returns a string representing the tree rooted at this node.
      * <font color="#FF0000">WARNING</font> this can be a very long string.
-     * 
+     *
      * @return A string representing the tree rooted at this node.
      */
     public String treeString(){

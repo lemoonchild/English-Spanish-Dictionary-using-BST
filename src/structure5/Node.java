@@ -4,10 +4,11 @@ package structure5;
 
 /**
  * A class supporting a singly linked list element.  Each element
- * contains a value and maintains a single reference to the next 
+ * contains a value and maintains a single reference to the next
  * node in the list.
  *
- * @version $Id: Node.java 31 2007-08-06 17:19:56Z bailey $
+ * @param <E> the type parameter
+ * @version $Id : Node.java 31 2007-08-06 17:19:56Z bailey $
  * @author, 2001 duane a. bailey
  */
 public class Node<E>
@@ -24,10 +25,10 @@ public class Node<E>
     /**
      * Construct a singly linked list element.
      *
+     * @param v    The value to be referenced by this element.
+     * @param next A reference to the next value in the list.
      * @pre v is a value, next is a reference to remainder of list
      * @post an element is constructed as the new head of list
-     * @param v The value to be referenced by this element.
-     * @param next A reference to the next value in the list.
      */
     public Node(E v, Node<E> next)
     {
@@ -39,9 +40,8 @@ public class Node<E>
      * Constructs a node not associated with
      * any list.  next reference is set to null.
      *
-     * @post constructs a new tail of a list with value v
-     * 
      * @param v The value to be inserted into the node.
+     * @post constructs a new tail of a list with value v
      */
     public Node(E v)
     {
@@ -49,8 +49,10 @@ public class Node<E>
     }
 
     /**
+     * Next node.
+     *
+     * @return the node
      * @post returns reference to next value in list
-     * 
      */
     public Node<E> next()
     {
@@ -60,9 +62,8 @@ public class Node<E>
     /**
      * Update the next element.
      *
-     * @post sets reference to new next value
-     * 
      * @param next The new value of the next element reference.
+     * @post sets reference to new next value
      */
     public void setNext(Node<E> next)
     {
@@ -72,9 +73,8 @@ public class Node<E>
     /**
      * Fetch the value associated with this element.
      *
-     * @post returns value associated with this element
-     * 
      * @return Reference to the value stored within this element.
+     * @post returns value associated with this element
      */
     public E value()
     {
@@ -84,9 +84,8 @@ public class Node<E>
     /**
      * Set the value associated with this element.
      *
-     * @post sets value associated with this element
-     * 
      * @param value The new value to be associated with this element.
+     * @post sets value associated with this element
      */
     public void setValue(E value)
     {

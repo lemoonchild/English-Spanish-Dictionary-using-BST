@@ -1,9 +1,10 @@
 package structure5;
+
 /**
  * An iterator for traversing the elements of a doubly linked list.
  * The iterator traverses the list beginning at the head, and heads toward
  * tail.
- *
+ * <p>
  * Typical use:
  * <pre>
  *      List l = new DoublyLinkedList();
@@ -19,7 +20,8 @@ package structure5;
  *      { .... }
  * </pre>
  *
- * @version $Id: DoublyLinkedListIterator.java 31 2007-08-06 17:19:56Z bailey $
+ * @param <E> the type parameter
+ * @version $Id : DoublyLinkedListIterator.java 31 2007-08-06 17:19:56Z bailey $
  * @author, 2001 duane a. bailey
  */
 public class DoublyLinkedListIterator<E> extends AbstractIterator<E>
@@ -42,9 +44,8 @@ public class DoublyLinkedListIterator<E> extends AbstractIterator<E>
     /**
      * Construct an iterator over a doubly linked list hanging from head.
      *
-     * @post constructs an iterator rooted at list head, h
-     * 
      * @param h The head of the list to be traversed.
+     * @post constructs an iterator rooted at list head, h
      */
     public DoublyLinkedListIterator(DoublyLinkedNode<E> h)
     {
@@ -54,7 +55,13 @@ public class DoublyLinkedListIterator<E> extends AbstractIterator<E>
     }
 
 
-    public DoublyLinkedListIterator(DoublyLinkedNode<E> headDummy,      
+    /**
+     * Instantiates a new Doubly linked list iterator.
+     *
+     * @param headDummy the head dummy
+     * @param tailDummy the tail dummy
+     */
+    public DoublyLinkedListIterator(DoublyLinkedNode<E> headDummy,
                                     DoublyLinkedNode<E> tailDummy)
     {
         head = headDummy.next();

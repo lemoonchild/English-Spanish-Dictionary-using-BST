@@ -10,15 +10,15 @@ import java.net.URL;
  * data on an input stream.  Usually, a ReadStream is constructed
  * with no parameters, causing the ReadStream to open access to
  * System.in.
- * <P>
+ * <p>
  * The access methods allow one to read from the stream, much as is done
- * with Pascal.  
- * <P>
+ * with Pascal.
+ * <p>
  * Typical usage:
- * <P>
+ * <p>
  * To read everything typed in System.in into a vector we could
  * use the following:
- * <P>
+ * <p>
  * <pre>
  * public static void main(String[] argv){
  *      ReadStream r = new {@link #ReadStream()};
@@ -31,14 +31,14 @@ import java.net.URL;
  *   }
  * }
  * </pre>
- * 
- * @version $Id: ReadStream.java 22 2006-08-21 19:27:26Z bailey $
+ *
+ * @version $Id : ReadStream.java 22 2006-08-21 19:27:26Z bailey $
  * @author, 2001 duane a. bailey
  */
-public class ReadStream extends FilterInputStream 
+public class ReadStream extends FilterInputStream
 {
     /**
-     * The underlying data stream.      
+     * The underlying data stream.
      */
     protected DataInputStream strm;
     /**
@@ -52,8 +52,9 @@ public class ReadStream extends FilterInputStream
     /**
      * The number of characters to be stored in buffer.
      */
-    protected int buffersize;           // current size of pushback buffer      
+    protected int buffersize;           // current size of pushback buffer
     /**
+     * The Buffertop.
      */
     protected int buffertop;            // top element of pushback stack
 
@@ -75,10 +76,9 @@ public class ReadStream extends FilterInputStream
     /**
      * Construct a ReadStream based on pre-existing input stream.
      *
+     * @param strm The pre-existing input stream.
      * @pre strm is a valid input stream
      * @post constructs a pascal-like stream based on strm
-     * 
-     * @param strm The pre-existing input stream.
      */
     public ReadStream(InputStream strm)
     {
@@ -97,9 +97,8 @@ public class ReadStream extends FilterInputStream
     /**
      * Determine if we've seen end-of-file.
      *
-     * @pre are we at the end-of-file?
-     * 
      * @return True if the next character to be read is EOF.
+     * @pre are we at the end-of-file?
      */
     public boolean eof()
     {
@@ -117,9 +116,9 @@ public class ReadStream extends FilterInputStream
 
     /**
      * Read (but don't consume) next char in stream.
-     * @post returns next character in stream, without consuming it
-     * 
+     *
      * @return The next character to be read.
+     * @post returns next character in stream, without consuming it
      */
     public char getFirst()
     {
@@ -131,9 +130,8 @@ public class ReadStream extends FilterInputStream
     /**
      * Return true if the next character to be read is an end-of-line mark.
      *
-     * @post returns true if next stream char is an eoln char
-     * 
      * @return True iff the next character is an end-of-line mark.
+     * @post returns true if next stream char is an eoln char
      */
     public boolean eoln()
     {
@@ -169,9 +167,8 @@ public class ReadStream extends FilterInputStream
      * Skip white space and read in the next non-whitespace word
      * as a string.
      *
-     * @post reads next word as a string
-     * 
      * @return The next word on the input.
+     * @post reads next word as a string
      */
     public String readString()
     {
@@ -221,9 +218,8 @@ public class ReadStream extends FilterInputStream
     /**
      * Read the next word "true" or "false" as a boolean.
      *
-     * @post returns next boolean value read from input
-     * 
      * @return The value true or false, depending on input.
+     * @post returns next boolean value read from input
      */
     public boolean readBoolean()
     {
@@ -235,9 +231,8 @@ public class ReadStream extends FilterInputStream
     /**
      * Read next character, whitespace or not.  Fail on eof.
      *
-     * @post returns next character, or 0 for eof
-     * 
      * @return The next character, or the value 0 indicating EOF.
+     * @post returns next character, or 0 for eof
      */
     public char readChar()
     {
@@ -269,10 +264,8 @@ public class ReadStream extends FilterInputStream
     /**
      * Return character to input stream for reading at later time.
      *
-     * @post pushes back character, possibly clearing EOF;
-     *       if c == 0, does nothing
-     * 
      * @param c The character to push back onto input stream.
+     * @post pushes back character, possibly clearing EOF;       if c == 0, does nothing
      */
     public void pushbackChar(char c)
     {
@@ -298,9 +291,8 @@ public class ReadStream extends FilterInputStream
      * Whitespace is skipped beforehand.
      * CURRENTLY NOT WORKING.
      *
-     * @post reads in double value
-     * 
      * @return The next double found on input.
+     * @post reads in double value
      */
     public double readDouble()
     {
@@ -349,9 +341,8 @@ public class ReadStream extends FilterInputStream
      * (Currently not working).
      * Skips whitespace before reading.
      *
-     * @post reads floating point value and returns value
-     * 
      * @return Next floating point number.
+     * @post reads floating point value and returns value
      */
     public float readFloat()
     {
@@ -362,6 +353,7 @@ public class ReadStream extends FilterInputStream
      * Read an array of bytes from input.
      *
      * @param b The array of bytes; holds result.
+     * @throws IOException the io exception
      */
     public void readFully(byte b[]) throws IOException
     {
@@ -371,9 +363,10 @@ public class ReadStream extends FilterInputStream
     /**
      * Read input into byte array.
      *
-     * @param b Target array of bytes.
+     * @param b   Target array of bytes.
      * @param off Offset into byte array to start reading.
      * @param len Number of bytes to be read.
+     * @throws IOException the io exception
      */
     public void readFully(byte b[], int off, int len)
         throws IOException
@@ -384,9 +377,8 @@ public class ReadStream extends FilterInputStream
     /**
      * Reads an integer from input stream.
      *
-     * @post reads a short integer from stream
-     * 
      * @return The integer read form input.
+     * @post reads a short integer from stream
      */
     public short readShort()
     {
@@ -396,9 +388,8 @@ public class ReadStream extends FilterInputStream
     /**
      * Reads an integer from input stream.
      *
-     * @post reads an integer from stream
-     * 
      * @return The integer read form input.
+     * @post reads an integer from stream
      */
     public int readInt()
     {
@@ -407,9 +398,9 @@ public class ReadStream extends FilterInputStream
 
     /**
      * Read a (potentially long) input.
-     * @post reads a long integer from stream
-     * 
+     *
      * @return The integer read from input.
+     * @post reads a long integer from stream
      */
     public long readLong()
     {
@@ -462,9 +453,8 @@ public class ReadStream extends FilterInputStream
     /**
      * Read the remainder of line, including end-of-line mark.
      *
-     * @post reads remainder of line, returns as string
-     * 
      * @return The string containing all the characters to end-of-line.
+     * @post reads remainder of line, returns as string
      */
     public String readLine()
     {
@@ -482,6 +472,7 @@ public class ReadStream extends FilterInputStream
      * Read unicode from input.
      *
      * @return String version of UTF character.
+     * @throws IOException the io exception
      */
     public String readUTF() throws IOException
     {

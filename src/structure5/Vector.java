@@ -8,14 +8,14 @@ import java.util.Collection;
 
 /**
  * An implementation of extensible arrays, similar to that of {@link java.util.Vector java.util.Vector}.
- *
+ * <p>
  * This vector class implements a basic extensible array.  It does not implement
  * any of the additional features of the Sun class, including list-like operations.
  * Those operations are available in other implementors of {@link List} in this
  * package.
  * <p>
  * Example usage:
- *
+ * <p>
  * To put a program's parameters into a Vector, we would use the following:
  * <pre>
  * public static void main(String[] arguments)
@@ -29,7 +29,8 @@ import java.util.Collection;
  * }
  * </pre>
  *
- * @version $Id: Vector.java 31 2007-08-06 17:19:56Z bailey $
+ * @param <E> the type parameter
+ * @version $Id : Vector.java 31 2007-08-06 17:19:56Z bailey $
  * @since JavaStructures 1.0
  */
 public class Vector<E> extends AbstractList<E> implements Cloneable
@@ -66,21 +67,21 @@ public class Vector<E> extends AbstractList<E> implements Cloneable
 
     /**
      * Construct an empty vector.
-     * 
+     *
      * @post constructs a vector with capacity for 10 elements
      */
     public Vector()
     {
         this(defaultCapacity); // call one-parameter constructor
     }
-    
+
     /**
      * Construct an empty vector capable of storing <code>initialCapacity</code>
      * values before the vector must be extended.
      *
+     * @param initialCapacity The size of vector before reallocation is necessary
      * @pre initialCapacity >= 0
      * @post constructs an empty vector with initialCapacity capacity
-     * @param initialCapacity The size of vector before reallocation is necessary
      */
     public Vector(int initialCapacity)
     {
@@ -94,13 +95,11 @@ public class Vector<E> extends AbstractList<E> implements Cloneable
     /**
      * Construct a vector with initial capacity, and growth characteristic.
      *
-     * @pre initialCapacity >= 0, capacityIncr >= 0
-     * @post constructs an empty vector with initialCapacity capacity
-     *    that extends capacity by capacityIncr, or doubles if 0
-     * 
      * @param initialCapacity The initial number of slots in vector.
-     * @param capacityIncr The size of growth of vector.
-     * @see #capacityIncrement
+     * @param capacityIncr    The size of growth of vector.
+     * @pre initialCapacity >= 0, capacityIncr >= 0
+     * @post constructs an empty vector with initialCapacity capacity    that extends capacity by capacityIncr, or doubles if 0
+     * @see #capacityIncrement #capacityIncrement
      */
     public Vector(int initialCapacity, int capacityIncr)
     {
@@ -117,14 +116,11 @@ public class Vector<E> extends AbstractList<E> implements Cloneable
      * Construct a vector with initial size, growth rate and default
      * value.
      *
-     * @pre initialCapacity, capacityIncr >= 0
-     * @post constructs empty vector with capacity that begins at
-     *       initialCapacity and extends by capacityIncr or doubles
-     *       if 0.  New entries in vector are initialized to initValue.
-     * 
      * @param initialCapacity The initial number of slots in vector.
-     * @param capacityIncr The size of the increment when vector grows.
-     * @param initValue The initial value stored in vector elements.
+     * @param capacityIncr    The size of the increment when vector grows.
+     * @param initValue       The initial value stored in vector elements.
+     * @pre initialCapacity, capacityIncr >= 0
+     * @post constructs empty vector with capacity that begins at       initialCapacity and extends by capacityIncr or doubles       if 0.  New entries in vector are initialized to initValue.
      */
     public Vector(int initialCapacity, int capacityIncr, E initValue)
     {
@@ -134,12 +130,22 @@ public class Vector<E> extends AbstractList<E> implements Cloneable
         elementCount = 0;
         initialValue = initValue;
     }
-    
+
+    /**
+     * Instantiates a new Vector.
+     *
+     * @param that the that
+     */
     public Vector(Vector<E> that)
     {
         this(that.values());
     }
 
+    /**
+     * Instantiates a new Vector.
+     *
+     * @param c the c
+     */
     public Vector(Collection<E> c)
     {
         this(c.size());
@@ -155,9 +161,8 @@ public class Vector<E> extends AbstractList<E> implements Cloneable
      * Ensure that the vector is capable of holding at least
      * minCapacity values without expansion.
      *
-     * @post the capacity of this vector is at least minCapacity
-     * 
      * @param minCapacity The minimum size of array before expansion.
+     * @post the capacity of this vector is at least minCapacity
      */
     public void ensureCapacity(int minCapacity)
     {
@@ -203,14 +208,13 @@ public class Vector<E> extends AbstractList<E> implements Cloneable
         elementData[elementCount] = obj;
         elementCount++;
     }
-    
+
     /**
      * Add an element to the high end of the array, possibly expanding
      * vector.
      *
+     * @param o the o
      * @post adds new element to end of possibly extended vector
-     * 
-     * @param obj The object to be added to the end of the vector.
      */
     public void addElement(E o)
     {
@@ -240,9 +244,8 @@ public class Vector<E> extends AbstractList<E> implements Cloneable
      * Determine the capacity of the vector.  The capacity is always
      * at least as large as its size.
      *
-     * @post returns allocated size of the vector
-     * 
      * @return The size of the array underlying the vector.
+     * @post returns allocated size of the vector
      */
     public int capacity()
     {
@@ -292,10 +295,9 @@ public class Vector<E> extends AbstractList<E> implements Cloneable
      * The array must be large enough to accept all the values in
      * the vector.
      *
+     * @param dest An array of size at least size().
      * @pre dest has at least size() elements
      * @post a copy of the vector is stored in the dest array
-     * 
-     * @param dest An array of size at least size(). 
      */
     public void copyInto(Object dest[])
     {
@@ -309,11 +311,10 @@ public class Vector<E> extends AbstractList<E> implements Cloneable
      * Fetch the element at a particular index.
      * The index of the first element is zero.
      *
-     * @pre 0 <= index && index < size()
-     * @post returns the element stored in location index
-     * 
      * @param index The index of the value sought.
      * @return A reference to the value found in the vector.
+     * @pre 0 <= index && index < size()
+     * @post returns the element stored in location index
      */
     public E elementAt(int index)
     {
@@ -355,10 +356,9 @@ public class Vector<E> extends AbstractList<E> implements Cloneable
     /**
      * Get access to the first element of the vector.
      *
+     * @return Access to the first element of the vector.
      * @pre vector contains an element
      * @post returns first value in vector
-     * 
-     * @return Access to the first element of the vector.
      */
     public E firstElement()
     {
@@ -383,11 +383,10 @@ public class Vector<E> extends AbstractList<E> implements Cloneable
      * Assuming the data is not in order, find the index of a value
      * or return -1 if the value is not found.  Search starts at index.
      *
-     * @post returns index of element equal to object, or -1; starts at index
-     * 
-     * @param elem The value sought.
+     * @param elem  The value sought.
      * @param index The first location considered.
      * @return The index of the first location, or -1 if not found.
+     * @post returns index of element equal to object, or -1; starts at index
      */
     public int indexOf(E elem, int index)
     {
@@ -403,13 +402,10 @@ public class Vector<E> extends AbstractList<E> implements Cloneable
      * Insert an element at a particular location.
      * Vector is grown as needed
      *
-     * @pre 0 <= index <= size()
-     * @post inserts new value in vector with desired index,
-     *   moving elements from index to size()-1 to right
-     * 
-     * @param obj The value to be inserted.
+     * @param obj   The value to be inserted.
      * @param index The location of the new value.
-     *
+     * @pre 0 <= index <= size()
+     * @post inserts new value in vector with desired index,   moving elements from index to size()-1 to right
      */
     public void insertElementAt(E obj, int index)
     {
@@ -470,10 +466,9 @@ public class Vector<E> extends AbstractList<E> implements Cloneable
     /**
      * Fetch a reference to the last value in the vector.
      *
+     * @return A reference to the last value.
      * @pre vector is not empty
      * @post returns last element of the vector
-     * 
-     * @return A reference to the last value.
      */
     public E lastElement()
     {
@@ -498,13 +493,11 @@ public class Vector<E> extends AbstractList<E> implements Cloneable
      * Find the index of the last occurrence of the value in the vector before
      * the indexth position.
      *
-     * @pre index >= 0
-     * @post returns the index of last occurrence of object at or before
-     *       index
-     * 
-     * @param obj The value sought.
+     * @param obj   The value sought.
      * @param index The last acceptable index.
      * @return The index of the last occurrence of the value, or -1 if none.
+     * @pre index >= 0
+     * @post returns the index of last occurrence of object at or before       index
      */
     public int lastIndexOf(E obj, int index)
     {
@@ -530,8 +523,7 @@ public class Vector<E> extends AbstractList<E> implements Cloneable
      * Kept for compatibility with java.util.Vector.
      *
      * @post vector is empty
-     *
-     * @see #clear
+     * @see #clear #clear
      */
     public void removeAllElements()
     {
@@ -558,10 +550,9 @@ public class Vector<E> extends AbstractList<E> implements Cloneable
     /**
      * Remove an element at a particular location.
      *
+     * @param where The location of the element to be removed.
      * @pre 0 <= where && where < size()
      * @post indicated element is removed, size decreases by 1
-     * 
-     * @param where The location of the element to be removed.
      */
     public void removeElementAt(int where)
     {
@@ -591,11 +582,10 @@ public class Vector<E> extends AbstractList<E> implements Cloneable
     /**
      * Change the value stored at location index.
      *
+     * @param obj   The new value to be stored.
+     * @param index The index of the new value.
      * @pre 0 <= index && index < size()
      * @post element value is changed to obj
-     * 
-     * @param obj The new value to be stored.
-     * @param index The index of the new value.
      */
     public void setElementAt(E obj, int index)
     {
@@ -624,10 +614,9 @@ public class Vector<E> extends AbstractList<E> implements Cloneable
      * Explicitly set the size of the array.
      * Any new elements are initialized to the default value.
      *
+     * @param newSize The ultimate size of the vector.
      * @pre newSize >= 0
      * @post vector is resized, any new elements are initialized
-     * 
-     * @param newSize The ultimate size of the vector.
      */
     public void setSize(int newSize)
     {

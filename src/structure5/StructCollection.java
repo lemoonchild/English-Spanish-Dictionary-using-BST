@@ -3,6 +3,7 @@
 package structure5;
 import java.util.Collection;
 import java.util.Iterator;
+
 /**
  * This utility class converts a Structure to a Collection.
  * Users are advised to make use of the <code>values</code> method
@@ -14,18 +15,20 @@ import java.util.Iterator;
  * This class works provides a facade: methods of the Collection
  * interface are directly referred to the base Structure, or simple
  * code supports the interface.
- * <P>
+ * <p>
  * Example Usage:
- * <P>
+ * <p>
  * <pre>
  * public static void main(String[] argv){
  *      Structure struct = new Vector();
  *      for(int i = 0; i < argv.length; i++) struct.add(argv[i]);
  *      Collection collect = new {@link #StructCollection(Structure) StructCollection(struct)};
- * } 
+ * }
  * </pre>
+ *
+ * @param <E> the type parameter
+ * @version $Id : StructCollection.java 29 2006-11-03 16:56:32Z bailey $
  * @author, 2001 duane a. bailey
- * @version $Id: StructCollection.java 29 2006-11-03 16:56:32Z bailey $
  * @since Java Structures, 2nd edition
  */
 @SuppressWarnings("unchecked")
@@ -39,8 +42,9 @@ public class StructCollection<E> implements Collection<E>
     /**
      * Constructs a Collection, based on the contents of the subordinate
      * Structure object.
-     * @post the Collection is a facade for manipulations to a subordinate
-     * Structure.
+     *
+     * @param s the s
+     * @post the Collection is a facade for manipulations to a subordinate Structure.
      */
     public StructCollection(Structure<E> s)
     {

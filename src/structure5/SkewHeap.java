@@ -11,9 +11,9 @@ import java.util.Random;
  * amortized logarithmic time, but individual operations may take linear
  * time to execute in the worst case.
  *
- * <P>
+ * <p>
  * Example usage:
- * <P>
+ * <p>
  * To print out a list of programmers sorted by age we could use the following:
  * <pre>
  * public static void main(String[] argv){
@@ -28,20 +28,22 @@ import java.util.Random;
  *      programmers.add(new ComparableAssociation(new Integer(19), "Chris"));
  *      programmers.add(new ComparableAssociation(new Integer(20), "Shimon"));
  *      programmers.add(new ComparableAssociation(new Integer(21), "Diane"));
- *      programmers.add(new ComparableAssociation(new Integer(21), "Lida"));    
- *      programmers.add(new ComparableAssociation(new Integer(20), "Rob"));     
- *      programmers.add(new ComparableAssociation(new Integer(20), "Sean"));    
+ *      programmers.add(new ComparableAssociation(new Integer(21), "Lida"));
+ *      programmers.add(new ComparableAssociation(new Integer(20), "Rob"));
+ *      programmers.add(new ComparableAssociation(new Integer(20), "Sean"));
  *
- *      //print out programmers 
+ *      //print out programmers
  *      while(!programmers.{@link #isEmpty()}){
  *          ComparableAssociation p = (ComparableAssociation)programmers.{@link #remove()};
  *          System.out.println(p.getValue() + " is " + p.getKey() + " years old.");
  *      }
  * }
  * </pre>
- * @version $Id: SkewHeap.java 35 2007-08-09 20:38:38Z bailey $
+ *
+ * @param <E> the type parameter
+ * @version $Id : SkewHeap.java 35 2007-08-09 20:38:38Z bailey $
  * @author, 2001 duane a. bailey
- */ 
+ */
 public class SkewHeap<E extends Comparable<E>> implements MergeableHeap<E>
 {
     /**
@@ -49,6 +51,9 @@ public class SkewHeap<E extends Comparable<E>> implements MergeableHeap<E>
      */
     protected BinaryTree<E> root;
 
+    /**
+     * The Empty.
+     */
     protected final BinaryTree<E> EMPTY = new BinaryTree<E>();
     /**
      * The number of nodes within heap.
@@ -160,6 +165,14 @@ public class SkewHeap<E extends Comparable<E>> implements MergeableHeap<E>
         this.count += that.count;
     }
 
+    /**
+     * Merge binary tree.
+     *
+     * @param <E>   the type parameter
+     * @param left  the left
+     * @param right the right
+     * @return the binary tree
+     */
     protected static <E extends Comparable<E>>
         BinaryTree<E> merge(BinaryTree<E> left, BinaryTree<E> right)
     {
@@ -209,6 +222,11 @@ public class SkewHeap<E extends Comparable<E>> implements MergeableHeap<E>
         return sb+">";
     }
 
+    /**
+     * Main.
+     *
+     * @param argv the argv
+     */
     public static void main(String[] argv){
         int s1 = 0, s2 = 0, s3 = 1, max = 0;
         try{

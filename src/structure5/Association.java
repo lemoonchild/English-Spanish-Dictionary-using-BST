@@ -6,20 +6,21 @@ import java.util.Map;
 /*
 public class Association<K,V>
 */
+
 /**
- * A class implementing a key-value pair.  This class associates an 
+ * A class implementing a key-value pair.  This class associates an
  * immutable key with a mutable value.  Used in many other structures.
- * <P>
+ * <p>
  * Example Usage:
- * <P>
+ * <p>
  * To store the number of classes a student has taken from five different
  * professors and to output this information, we could use the following.
- * <P>
+ * <p>
  * <pre>
  * public static void main(String[] argv){
  *      //store the number of classes taken by the student in an array of associations
  *      {@link Association} [] classesTaken = new Association[5];
- *      classesTaken[0] = new {@link #Association(Object,Object) Association("Andrea", new Integer(5))};
+ *      classesTaken[0] = new {@link #Association(Object, Object) Association("Andrea", new Integer(5))};
  *      classesTaken[1] = new Association("Barbara", new Integer(1));
  *      classesTaken[2] = new Association("Bill", new Integer(3));
  *      classesTaken[3] = new Association("Duane", new Integer(2));
@@ -32,7 +33,10 @@ public class Association<K,V>
  *      }
  * }
  * </pre>
- * @version $Id: Association.java 34 2007-08-09 14:43:44Z bailey $
+ *
+ * @param <K> the type parameter
+ * @param <V> the type parameter
+ * @version $Id : Association.java 34 2007-08-09 14:43:44Z bailey $
  * @author, 2001 duane a. bailey
  */
 
@@ -52,13 +56,14 @@ public class Association<K,V> implements Map.Entry<K,V>
       Association<String,Integer> personAttribute =
          new Assocation<String,Integer>("Age",34);
      */
+
     /**
      * Constructs a pair from a key and value.
      *
+     * @param key   A non-null object.
+     * @param value A (possibly null) object.
      * @pre key is non-null
      * @post constructs a key-value pair
-     * @param key A non-null object.
-     * @param value A (possibly null) object.
      */
     public Association(K key, V value)
     {
@@ -70,9 +75,9 @@ public class Association<K,V> implements Map.Entry<K,V>
     /**
      * Constructs a pair from a key; value is null.
      *
+     * @param key A non-null key value.
      * @pre key is non-null
      * @post constructs a key-value pair; value is null
-     * @param key A non-null key value.
      */
     public Association(K key)
     {

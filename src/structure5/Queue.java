@@ -1,19 +1,20 @@
 // Interface for queues.
 // (c) 1998,2001 duane a. bailey
 package structure5;
+
 /**
- * Interface describing a first-in, first-out structure.  
- * Values are added at the tail, and removed from the head.  
- * Queues are typically used to process values in the order that they appear 
+ * Interface describing a first-in, first-out structure.
+ * Values are added at the tail, and removed from the head.
+ * Queues are typically used to process values in the order that they appear
  * and to store the state of a buffered object.
- * The structure package provides several implementations of the Queue interface, 
+ * The structure package provides several implementations of the Queue interface,
  * each of which has its particular strengths and weaknesses.
- * <P>
+ * <p>
  * Example usage:
- * <P>
+ * <p>
  * To compute the sum of the unicode value of every character in the standard input
  * we could use the following:
- * <P>
+ * <p>
  * <pre>
  * public static void main(String[] arguments)
  * {
@@ -36,13 +37,15 @@ package structure5;
  *     System.out.println("Total Value: " + unicodeSum);
  * }
  * </pre>
+ *
+ * @param <E> the type parameter
+ * @version $Id : Queue.java 22 2006-08-21 19:27:26Z bailey $
+ * @author, 2001 duane a. bailey
  * @see structure.Stack
  * @see AbstractQueue
  * @see QueueArray
  * @see QueueVector
  * @see QueueList
- * @version $Id: Queue.java 22 2006-08-21 19:27:26Z bailey $
- * @author, 2001 duane a. bailey
  */
 public interface Queue<E> extends Linear<E>
 {
@@ -59,9 +62,8 @@ public interface Queue<E> extends Linear<E>
     /**
      * Add a value to the tail of the queue.
      *
-     * @post the value is added to the tail of the structure
-     * 
      * @param value The value to be added.
+     * @post the value is added to the tail of the structure
      */
     public void enqueue(E value);
 
@@ -79,20 +81,18 @@ public interface Queue<E> extends Linear<E>
     /**
      * Remove a value from the head of the queue.
      *
+     * @return The value removed from the queue.
      * @pre the queue is not empty
      * @post the head of the queue is removed and returned
-     * 
-     * @return The value removed from the queue.
      */
     public E dequeue();
 
     /**
      * Fetch the value at the head of the queue.
      *
+     * @return Reference to the first value of the queue.
      * @pre the queue is not empty
      * @post the element at the head of the queue is returned
-     * 
-     * @return Reference to the first value of the queue.
      */
     public E getFirst();
 
@@ -109,10 +109,9 @@ public interface Queue<E> extends Linear<E>
     /**
      * Fetch the value at the head of the queue.
      *
+     * @return Reference to the first value of the queue.
      * @pre the queue is not empty
      * @post the element at the head of the queue is returned
-     * 
-     * @return Reference to the first value of the queue.
      */
     public E peek();
 

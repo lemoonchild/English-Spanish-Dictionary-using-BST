@@ -1,16 +1,17 @@
 // The interface for stacks.
 // (c) 1998, 2001 duane a. bailey
 package structure5;
+
 /**
  * An interface describing a Last-In, First-Out structure.
  * Stacks are typically used to store the state of a recursively
  * solved problem.
- * The structure package provides several implementations of the Stack interface, 
+ * The structure package provides several implementations of the Stack interface,
  * each of which has its particular strengths and weaknesses.
- *  
- * <P>
+ *
+ * <p>
  * Example usage:
- * <P>
+ * <p>
  * To reverse a string using a stack, we would use the following:
  * <pre>
  * public static void main(String[] arguments)
@@ -18,7 +19,7 @@ package structure5;
  *     if(arguments.length > 0){
  *         {@link Stack} reverseStack = new {@link structure.StackList#StackList() StackList()};
  *         String s = arguments[0];
- *          
+ *
  *         for(int i=0; i < s.length(); i++){
  *             reverseStack.{@link #push(Object) push(new Character(s.charAt(i)))};
  *         }
@@ -31,7 +32,9 @@ package structure5;
  *     }
  * }
  * </pre>
- * @version $Id: Stack.java 22 2006-08-21 19:27:26Z bailey $
+ *
+ * @param <E> the type parameter
+ * @version $Id : Stack.java 22 2006-08-21 19:27:26Z bailey $
  * @author, 2001 duane a. bailey
  */
 public interface Stack<E> extends Linear<E>
@@ -50,10 +53,8 @@ public interface Stack<E> extends Linear<E>
     /**
      * Add an element to top of stack.
      *
-     * @post item is added to stack
-     *       will be popped next if no intervening push
-     * 
      * @param item The value to be added to the top of the stack.
+     * @post item is added to stack       will be popped next if no intervening push
      */
     public void push(E item);
 
@@ -71,10 +72,9 @@ public interface Stack<E> extends Linear<E>
     /**
      * Remove an element from the top of the stack.
      *
+     * @return A reference to the removed element.
      * @pre stack is not empty
      * @post most recently pushed item is removed and returned
-     * 
-     * @return A reference to the removed element.
      */
     public E pop();
 
@@ -91,20 +91,18 @@ public interface Stack<E> extends Linear<E>
     /**
      * Fetch a reference to the top element of the stack.
      *
+     * @return A reference to the top element of the stack.
      * @pre stack is not empty
      * @post top value (next to be popped) is returned
-     * 
-     * @return A reference to the top element of the stack.
      */
     public E getFirst();
 
     /**
      * Fetch a reference to the top element of the stack.
      *
+     * @return A reference to the top element of the stack.
      * @pre stack is not empty
      * @post top value (next to be popped) is returned
-     * 
-     * @return A reference to the top element of the stack.
      */
     public E peek();
 

@@ -1,11 +1,12 @@
 package structure5;
 import java.util.Iterator;
+
 /**
  * An iterator over all edges.  Every directed/undirected
  * edge is considered exactly once.  Order is not guaranteed.
- * <P>
+ * <p>
  * Typical use:
- * <P>
+ * <p>
  * <pre>
  *      Graph g = new GraphList();
  *      // ...list gets built up...
@@ -16,18 +17,23 @@ import java.util.Iterator;
  *      }
  * </pre>
  *
- * @version $Id: GraphListEIterator.java 22 2006-08-21 19:27:26Z bailey $
+ * @param <V> the type parameter
+ * @param <E> the type parameter
+ * @version $Id : GraphListEIterator.java 22 2006-08-21 19:27:26Z bailey $
  * @author, 2001 duane a. bailey
  */
 class GraphListEIterator<V,E> extends AbstractIterator<Edge<V,E>>
 {
+    /**
+     * The Edges.
+     */
     protected AbstractIterator<Edge<V,E>> edges;
 
     /**
-     * @post constructs a new iterator across edges of
-     *       vertices within dictionary
-     * 
-     * @param dict 
+     * Instantiates a new Graph list e iterator.
+     *
+     * @param dict the dict
+     * @post constructs a new iterator across edges of       vertices within dictionary
      */
     public GraphListEIterator(Map<V,GraphListVertex<V,E>> dict)
     {

@@ -5,18 +5,19 @@
 package structure5;
 import java.util.Iterator;
 import java.lang.Math;
+
 /**
  * This class implements a hash table whose collisions are resolved
  * through external chaining.  Values used as keys in this structure
  * must have a hashcode method that returns the same value when two
  * keys are "equals".  Initially, a hash table of suggested size is
  * allocated.
- * <P>
+ * <p>
  * Example Usage:
- * <P>
- * To create a hashtable by reading a collection of words and 
+ * <p>
+ * To create a hashtable by reading a collection of words and
  * definitions from System.in we could use the following:
- * <P> 
+ * <p>
  * <pre>
  * public static void main (String[] argv){
  *      ChainedHashtable dict = new {@link #ChainedHashtable()};
@@ -27,13 +28,16 @@ import java.lang.Math;
  *          word = r.readLine();
  *          System.out.println("Enter a definition: ");
  *          def = r.readLine();
- *          dict.{@link #put(Object,Object) put(word,def)};
+ *          dict.{@link #put(Object, Object) put(word,def)};
  *          System.out.println("Enter a word: ");
  *      }
  *      System.out.println(dict);
  * }
  * </pre>
- * @version $Id: ChainedHashtable.java 22 2006-08-21 19:27:26Z bailey $
+ *
+ * @param <K> the type parameter
+ * @param <V> the type parameter
+ * @version $Id : ChainedHashtable.java 22 2006-08-21 19:27:26Z bailey $
  * @author, 2001 duane a. bailey
  * @see Hashtable
  */
@@ -53,10 +57,9 @@ public class ChainedHashtable<K,V> extends AbstractMap<K,V> implements Map<K,V>,
      * Constructs a hashtable with capacity for at size elements
      * before chaining is absolutely required.
      *
+     * @param size The number of entries initially allocated.
      * @pre size > 0
      * @post constructs a new ChainedHashtable
-     * 
-     * @param size The number of entries initially allocated.
      */
     public ChainedHashtable(int size)
     {
@@ -113,6 +116,12 @@ public class ChainedHashtable<K,V> extends AbstractMap<K,V> implements Map<K,V>,
         return size() == 0;
     }
 
+    /**
+     * Locate list.
+     *
+     * @param key the key
+     * @return the list
+     */
     protected List<Association<K,V>> locate(K key)
     {
         int hash = Math.abs(key.hashCode() % data.size());
@@ -220,9 +229,8 @@ public class ChainedHashtable<K,V> extends AbstractMap<K,V> implements Map<K,V>,
     /**
      * Get an iterator over the keys of the hashtable.
      *
-     * @post returns iterator to traverse the keys of hash table
-     * 
      * @return An iterator over the key values appearing within table.
+     * @post returns iterator to traverse the keys of hash table
      */
     public Iterator<K> keys()
     {

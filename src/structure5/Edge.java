@@ -7,9 +7,9 @@ package structure5;
  * A class implementing common edge type among graphs.  This class
  * supports both directed and undirected edges.  Edge may also have
  * visited flags set and cleared.
- * <P>
+ * <p>
  * Typical usage:
- * <P>
+ * <p>
  * <pre>
  *     Graph g = new GraphListDirected();
  *     g.add("harry");
@@ -25,7 +25,10 @@ package structure5;
  *     e.{@link #reset()};
  *     ...
  * </pre>
- * @version $Id: Edge.java 22 2006-08-21 19:27:26Z bailey $
+ *
+ * @param <V> the type parameter
+ * @param <E> the type parameter
+ * @version $Id : Edge.java 22 2006-08-21 19:27:26Z bailey $
  * @author, 2001 duane a. bailey
  * @see structure.Graph
  */
@@ -35,7 +38,10 @@ public class Edge<V,E>
      * Two element array of vertex labels.
      * When necessary, first element is source.
      */
-    protected V here, there;    // labels of adjacent vertices
+    protected V here, /**
+ * The There.
+ */
+there;    // labels of adjacent vertices
     /**
      * Label associated with edge.  May be null.
      */
@@ -56,13 +62,11 @@ public class Edge<V,E>
      * on edge is any type, and may be null.
      * Edge is initially unvisited.
      *
-     * @post edge associates vtx1 and vtx2; labeled with label
-     *       directed if "directed" set true
-     *
-     * @param vtx1 The label of a vertex (source if directed).
-     * @param vtx2 The label of another vertex (destination if directed).
-     * @param label The label associated with the edge.
+     * @param vtx1     The label of a vertex (source if directed).
+     * @param vtx2     The label of another vertex (destination if directed).
+     * @param label    The label associated with the edge.
      * @param directed True iff this edge is directed.
+     * @post edge associates vtx1 and vtx2; labeled with label       directed if "directed" set true
      */
     public Edge(V vtx1, V vtx2, E label,
                 boolean directed)
@@ -77,9 +81,8 @@ public class Edge<V,E>
     /**
      * Returns the first vertex (or source if directed).
      *
-     * @post returns first node in edge
-     * 
      * @return A vertex; if directed, the source.
+     * @post returns first node in edge
      */
     public V here()
     {
@@ -89,9 +92,8 @@ public class Edge<V,E>
     /**
      * Returns the second vertex (or source if undirected).
      *
-     * @post returns second node in edge
-     * 
      * @return A vertex; if directed, the destination.
+     * @post returns second node in edge
      */
     public V there()
     {
@@ -101,9 +103,8 @@ public class Edge<V,E>
     /**
      * Sets the label associated with the edge.  May be null.
      *
-     * @post sets label of this edge to label 
-     * 
      * @param label Any object to label edge, or null.
+     * @post sets label of this edge to label
      */
     public void setLabel(E label)
     {
@@ -113,9 +114,8 @@ public class Edge<V,E>
     /**
      * Get label associated with edge.
      *
-     * @post returns label associated with this edge
-     * 
      * @return The label found on the edge.
+     * @post returns label associated with this edge
      */
     public E label()
     {
@@ -125,9 +125,8 @@ public class Edge<V,E>
     /**
      * Test and set visited flag on vertex.
      *
-     * @post visits edge, returns whether previously visited
-     * 
      * @return True iff edge was visited previously.
+     * @post visits edge, returns whether previously visited
      */
     public boolean visit()
     {
@@ -139,9 +138,8 @@ public class Edge<V,E>
     /**
      * Check to see if edge has been visited.
      *
-     * @post returns true iff edge has been visited
-     * 
      * @return True iff the edge has been visited.
+     * @post returns true iff edge has been visited
      */
     public boolean isVisited()
     {
@@ -151,9 +149,8 @@ public class Edge<V,E>
     /**
      * Check to see if edge is directed.
      *
-     * @post returns true iff edge is directed
-     * 
      * @return True iff the edge has been visited.
+     * @post returns true iff edge is directed
      */
     public boolean isDirected()
     {

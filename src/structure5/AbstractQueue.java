@@ -5,17 +5,17 @@ package structure5;
 
 /**
  * An abstract structure implementing features common to all first-in, first-out
- * structures in this package.  
- * Queues are typically used to process values in the order that they appear 
+ * structures in this package.
+ * Queues are typically used to process values in the order that they appear
  * and to store the state of buffered objects.
- * The structure package provides several implementations of the Queue interface, 
+ * The structure package provides several implementations of the Queue interface,
  * each of which has its particular strengths and weaknesses.
- * <P>
+ * <p>
  * Example usage:
- * <P>
+ * <p>
  * To compute the sum of the unicode value of every character in the standard input
  * we could use the following:
- * <P>
+ * <p>
  * <pre>
  * public static void main(String[] arguments)
  * {
@@ -38,11 +38,13 @@ package structure5;
  *     System.out.println("Total Value: " + unicodeSum);
  * }
  * </pre>
+ *
+ * @param <E> the type parameter
+ * @version $Id : AbstractQueue.java 22 2006-08-21 19:27:26Z bailey $
+ * @author, 2001 duane a. bailey
  * @see QueueArray
  * @see QueueVector
  * @see QueueList
- * @version $Id: AbstractQueue.java 22 2006-08-21 19:27:26Z bailey $
- * @author, 2001 duane a. bailey
  */
 public abstract class AbstractQueue<E>
     extends AbstractLinear<E> implements Queue<E>

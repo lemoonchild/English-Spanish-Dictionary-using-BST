@@ -7,12 +7,12 @@ import java.util.Iterator;
 /**
  * An implementation of a stack, based on array.  The head of the
  * stack is stored in the first position of the array, allowing the stack to grow
- * and shrink in constant time. This stack implementation is ideal for 
- * applications that require a stack with a known maximum size that expands 
+ * and shrink in constant time. This stack implementation is ideal for
+ * applications that require a stack with a known maximum size that expands
  * in constant time.
- * <P>
+ * <p>
  * Example usage:
- * <P>
+ * <p>
  * To reverse a string, we would use the following:
  * <pre>
  * public static void main(String[] arguments)
@@ -20,7 +20,7 @@ import java.util.Iterator;
  *     if(arguments.length > 0){
  *         {@link StackArray} reverseStack = new {@link #StackArray(int) StackArray(arguments[0].length())};
  *         String s = arguments[0];
- *          
+ *
  *         for(int i=0; i < s.length(); i++){
  *             reverseStack.{@link #push(Object) push(new Character(s.charAt(i)))};
  *         }
@@ -33,12 +33,14 @@ import java.util.Iterator;
  *     }
  * }
  * </pre>
- * @see Stack 
- * @see StackVector 
- * @see StackList 
- * @see AbstractStack
- * @version $Id: StackArray.java 29 2006-11-03 16:56:32Z bailey $
+ *
+ * @param <E> the type parameter
+ * @version $Id : StackArray.java 29 2006-11-03 16:56:32Z bailey $
  * @author, 2001 duane a. bailey
+ * @see Stack
+ * @see StackVector
+ * @see StackList
+ * @see AbstractStack
  */
 public class StackArray<E> extends AbstractStack<E> implements Stack<E>
 {
@@ -51,12 +53,12 @@ public class StackArray<E> extends AbstractStack<E> implements Stack<E>
      * is higher in array.
      */
     protected Object data[];
+
     /**
      * Construct a stack capable of holding at least size elements.
      *
-     * @post an empty stack with initial capacity of size is created
-     * 
      * @param size The maximum size of the stack.
+     * @post an empty stack with initial capacity of size is created
      */
     public StackArray(int size)
     {
@@ -158,9 +160,8 @@ public class StackArray<E> extends AbstractStack<E> implements Stack<E>
     /**
      * Determine if the stack is full.
      *
-     * @post returns true iff the stack is empty
-     * 
      * @return True iff there is no more room in the stack.
+     * @post returns true iff the stack is empty
      */
     public boolean isFull()
     {

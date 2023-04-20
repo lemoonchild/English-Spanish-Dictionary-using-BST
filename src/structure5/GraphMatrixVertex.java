@@ -1,12 +1,13 @@
 package structure5;
+
 /**
  * A private implementation of a vertex for use in graphs that
  * are internally represented as a Matrix.  A vertex
- * is capable of holding a label and has a flag that can be set  
- * to mark it as visited.   
- * <P>
+ * is capable of holding a label and has a flag that can be set
+ * to mark it as visited.
+ * <p>
  * Typical Usage:
- * <P>
+ * <p>
  * <pre>
  *     Vertex v = new {@link #GraphMatrixVertex(Object, int) Vertex(someLabel)};
  *     //...several graph related operations occur
@@ -15,20 +16,26 @@ package structure5;
  *         v.{@link #visit() visit()};
  *     }
  * </pre>
+ *
+ * @param <V> the type parameter
+ * @version $Id : GraphMatrixVertex.java 22 2006-08-21 19:27:26Z bailey $
+ * @author, 2001 duane a. bailey
  * @see GraphListVertex
  * @see Vertex
- * @version $Id: GraphMatrixVertex.java 22 2006-08-21 19:27:26Z bailey $
- * @author, 2001 duane a. bailey
  */
 class GraphMatrixVertex<V> extends Vertex<V>
 {
+    /**
+     * The Index.
+     */
     protected int index;
 
     /**
+     * Instantiates a new Graph matrix vertex.
+     *
+     * @param label the label
+     * @param idx   the idx
      * @post constructs a new augmented vertex
-     * 
-     * @param label 
-     * @param idx 
      */
     public GraphMatrixVertex(V label, int idx)
     {
@@ -37,9 +44,10 @@ class GraphMatrixVertex<V> extends Vertex<V>
     }
 
     /**
+     * Index int.
+     *
+     * @return int
      * @post returns index associated with vertex
-     * 
-     * @return 
      */
     public int index()
     {

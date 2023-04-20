@@ -1,12 +1,13 @@
 package structure5;
+
 /**
  * A traversal of all the elements as they appear in a hashtable.
  * No order is guaranteed.  This iterator is not publically accessable
  * and is used to implement Hashtable's key and value iterators.
  * This iteration returns objects that are instances of {@link Association}.
- * <P>
+ * <p>
  * Typical use:
- * <P>
+ * <p>
  * <pre>
  *      Hashtable h = new Hashtable();
  *      // ...hashtable gets built up...
@@ -15,8 +16,11 @@ package structure5;
  *      {
  *          System.out.println(ai.{@link #next() next()});
  *      }
- * </pre> 
- * @version $Id: HashtableIterator.java 22 2006-08-21 19:27:26Z bailey $
+ * </pre>
+ *
+ * @param <K> the type parameter
+ * @param <V> the type parameter
+ * @version $Id : HashtableIterator.java 22 2006-08-21 19:27:26Z bailey $
  * @author, 2001 duane a. bailey
  */
 class HashtableIterator<K,V> extends AbstractIterator<Association<K,V>>
@@ -34,9 +38,8 @@ class HashtableIterator<K,V> extends AbstractIterator<Association<K,V>>
     /**
      * Construct a traversal over a hashtable.
      *
-     * @post constructs a new hash table traversal
-     * 
      * @param table The array of lists to be traversed.
+     * @post constructs a new hash table traversal
      */
     public HashtableIterator(Vector<HashAssociation<K,V>> table)
     {

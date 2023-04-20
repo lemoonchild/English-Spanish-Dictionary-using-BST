@@ -1,16 +1,17 @@
 package structure5;
 import java.util.Iterator;
+
 /**
  * An abstract structure implementing features common to all
  * list-like structures in this package.
- * <p>       
+ * <p>
  * Lists are typically used to store data of unknown or varying length.
- * The structure package provides several extensions of the AbstractList class, 
+ * The structure package provides several extensions of the AbstractList class,
  * each of which has its particular strengths and weaknesses.
  * <p>
  * Example usage:
- *
- * To place a copy of every unique parameter passed to a program into a 
+ * <p>
+ * To place a copy of every unique parameter passed to a program into a
  * List, we could use the following:
  * <pre>
  * public static void main({@link java.lang.String String[]} arguments)
@@ -24,7 +25,9 @@ import java.util.Iterator;
  *    System.out.println(argList);
  * }
  * </pre>
- * @version $Id: AbstractList.java 22 2006-08-21 19:27:26Z bailey $
+ *
+ * @param <E> the type parameter
+ * @version $Id : AbstractList.java 22 2006-08-21 19:27:26Z bailey $
  * @author, 2001 duane a. bailey
  * @see DoublyLinkedList
  * @see CircularList
@@ -35,6 +38,7 @@ public abstract class AbstractList<E>
 {
     /**
      * Default constructor for AbstractLists
+     *
      * @post does nothing
      */
     public AbstractList()

@@ -4,6 +4,7 @@
 package structure5;
 import java.util.Enumeration;
 import java.util.Iterator;
+
 /**
  * Abstract base class for portable iterator and enumeration implementation.
  * <p>
@@ -27,7 +28,7 @@ import java.util.Iterator;
  * </pre>
  * <p>
  * Users of Java's <code>Enumeration</code> or <code>Iterator</code>
- * may treat the <code>AbstractIterator</code> as an <code>Enumeration</code> or 
+ * may treat the <code>AbstractIterator</code> as an <code>Enumeration</code> or
  * <code>Iterator</code>, respectively, without ill effect.
  * <p>
  * Appropriate care should be taken to make sure that the underlying data
@@ -38,8 +39,9 @@ import java.util.Iterator;
  * modifications are carefully synchronized, or limited to one active
  * traversal.
  *
+ * @param <E> the type parameter
+ * @version $Id : AbstractIterator.java 26 2006-08-24 14:29:13Z bailey $
  * @author, 2001 duane a. bailey
- * @version $Id: AbstractIterator.java 26 2006-08-24 14:29:13Z bailey $
  * @see java.util.Iterator
  * @see java.util.Enumeration
  */
@@ -59,7 +61,7 @@ public abstract class AbstractIterator<E>
 
     /**
      * Reset iterator to the beginning of the structure.
-     * This method is not required of <code>Iterator</code> or 
+     * This method is not required of <code>Iterator</code> or
      * <code>Enumeration</code> implementation, but some traversals
      * may allow efficient multi-pass implementations with little
      * overhead.  The user is encouraged to implement this method.
@@ -87,8 +89,8 @@ public abstract class AbstractIterator<E>
      * <code>Enumeration</code>.  This method should be implemented,
      * however, to provide better support for <code>for</code>-loops.
      *
-     * @pre there are more elements to be considered; hasNext()
      * @return the next value to be considered in iterator
+     * @pre there are more elements to be considered; hasNext()
      * @post returns current value; ie. value next() will return
      */
     public abstract E get();
@@ -99,11 +101,10 @@ public abstract class AbstractIterator<E>
      * <code>Enumeration</code>.  This method should be implemented,
      * however, to provide better support for <code>for</code>-loops.
      *
-     * @deprecated This method was deprecated in version 2 of the structure
-     * package. Use the get method.
-     * @pre there are more elements to be considered; hasNext()
      * @return the next value to be considered in iterator
+     * @pre there are more elements to be considered; hasNext()
      * @post returns the current value; the value next() will return
+     * @deprecated This method was deprecated in version 2 of the structure package. Use the get method.
      */
     @Deprecated final public E value()
     {

@@ -2,13 +2,15 @@
 // (c) 1998,2001 duane a. bailey
 
 package structure5;
+
 /**
- * An abstract implemtation of linear data structures. Linear structures have 
- * completely determined  add and remove methods.  
+ * An abstract implemtation of linear data structures. Linear structures have
+ * completely determined  add and remove methods.
  * Linear structures are often used to store the the state of a recursively
  * solved problem and stacks and queues are classic examples of such structures.
  *
- * @version $Id: AbstractLinear.java 22 2006-08-21 19:27:26Z bailey $
+ * @param <E> the type parameter
+ * @version $Id : AbstractLinear.java 22 2006-08-21 19:27:26Z bailey $
  * @author, 2001 duane a. bailey
  * @see structure.Stack
  * @see structure.Queue

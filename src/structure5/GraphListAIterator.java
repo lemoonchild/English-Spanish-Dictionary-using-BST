@@ -1,11 +1,12 @@
 package structure5;
 import java.util.Iterator;
+
 /**
  * An adjacent vertex iterator.   Adjacent vertices
  * (those on destination of edge, if directed) are considered,
  * but not in any guaranteed order.
  * Typical use:
- * <P>
+ * <p>
  * <pre>
  *      Graph g = new GraphList();
  *      // ...list gets built up...
@@ -15,20 +16,30 @@ import java.util.Iterator;
  *          System.out.println(ai.{@link #next() next()});
  *      }
  * </pre>
- * @version $Id: GraphListAIterator.java 22 2006-08-21 19:27:26Z bailey $
+ *
+ * @param <V> the type parameter
+ * @param <E> the type parameter
+ * @version $Id : GraphListAIterator.java 22 2006-08-21 19:27:26Z bailey $
  * @author, 2001 duane a. bailey
  */
 class GraphListAIterator<V,E> extends AbstractIterator<V>
 {
+    /**
+     * The Edges.
+     */
     protected AbstractIterator<Edge<V,E>> edges;
+    /**
+     * The Vertex.
+     */
     protected V vertex;
 
     /**
+     * Instantiates a new Graph list a iterator.
+     *
+     * @param i the
+     * @param v the v
      * @pre i is an edge iterator
      * @post returns iterator over vertices adjacent to v
-     * 
-     * @param i 
-     * @param v 
      */
     public GraphListAIterator(Iterator<Edge<V,E>> i, V v)
     {

@@ -3,25 +3,25 @@ import java.util.Map.Entry;
 import java.util.Iterator;
 
 /**
- * Associations establish a link between a key and a value.  
+ * Associations establish a link between a key and a value.
  * An associative array or map is a structure that allows a disjoint
- * set of keys to become associated with an arbitrary set of values.  
- * The convenience of an associative array is that the values used to 
- * index the elements need not be comparable and their range need not 
- * be known ahead of time.  Furthermore, there is no upper bound on 
- * the size of the structure.  It is able to maintain an arbitrary number 
- * of different pieces of information simultaneously.  Maps are sometimes 
+ * set of keys to become associated with an arbitrary set of values.
+ * The convenience of an associative array is that the values used to
+ * index the elements need not be comparable and their range need not
+ * be known ahead of time.  Furthermore, there is no upper bound on
+ * the size of the structure.  It is able to maintain an arbitrary number
+ * of different pieces of information simultaneously.  Maps are sometimes
  * called dictionaries because of the uniqueness of the association of
- * words and definitions in a household dictionary.  
- * <P>
+ * words and definitions in a household dictionary.
+ * <p>
  * This implementation is based on a list, so performance for most
  * operations is linear.
- * <P>
+ * <p>
  * Example Usage:
- * <P>
- * To create a dictionary by reading a collection of words and 
+ * <p>
+ * To create a dictionary by reading a collection of words and
  * definitions from System.in we could use the following!
- * <P> 
+ * <p>
  * <pre>
  * public static void main (String[] argv){
  *      Map dict = new {@link #MapList()};
@@ -32,22 +32,26 @@ import java.util.Iterator;
  *          word = r.readLine();
  *          System.out.println("Enter a definition: ");
  *          def = r.readLine();
- *          dict.{@link #put(Object,Object) put(word,def)};
+ *          dict.{@link #put(Object, Object) put(word,def)};
  *          System.out.println("Enter a word: ");
  *      }
  *      System.out.println(dict);
  * }
  * </pre>
+ *
+ * @param <K> the type parameter
+ * @param <V> the type parameter
  */
 public class MapList<K,V> implements Map<K,V>
 {
-    /** 
+    /**
      * List for storing the entries in this map
      */
     protected List<Association<K,V>> data;
-    
+
     /**
      * Construct an empty map, based on a list
+     *
      * @post constructs an empty map, based on a list
      */
     public MapList()
@@ -57,6 +61,8 @@ public class MapList<K,V> implements Map<K,V>
 
     /**
      * Construct a map with values found in source
+     *
+     * @param source the source
      * @post constructs a map with values found in source
      */
     public MapList(Map<K,V> source)

@@ -4,49 +4,56 @@
 package structure5;
 
 import java.util.Comparator;
+
 /**
  * Implementation of the {@link java.util.Comparator} interface that
- * provides a {@link #compare(Object,Object)} method that compares
+ * provides a {@link #compare(Object, Object)} method that compares
  * two objects using those objects default compareTo methods. Reverse
  * comparator however, reverses the natural comparison as follows:
- * <P>
- * Were we to call compare(a,b), ReverseComparator would return 
+ * <p>
+ * Were we to call compare(a,b), ReverseComparator would return
  * the following:
  * <pre>
  *     >0 if a < b
  *      0 if a = b
  *     <0 if a > b
  * </pre>
- * <P>
+ * <p>
  * Example usage:
- * <P>
+ * <p>
  * To print out the equality relationship between two randomly generated integers
  * we could use the following:
  * <pre>
  * public static void main(String[] argv){
  *     Random  rand = new Random();
  *     Comparator c = new {@link #ReverseComparator()};
- *      
+ *
  *     //generate two random Integers
  *     Integer a = new Integer(rand.nextInt(100));
  *     Integer b = new Integer(rand.nextInt(100));
- *      
+ *
  *     //print out the proper equality relationship between these integers
- *     if(c.{@link #compare(Object,Object) compare(a,b)} > 0) System.out.println("A:" + a + " > B:" + b);
- *     else if (c.{@link #compare(Object,Object) compare(a,b) < 0) System.out.println("A:" + a + " < B:" + b);
+ *     if(c.{@link #compare(Object, Object) compare(a,b)} > 0) System.out.println("A:" + a + " > B:" + b);
+ *     else if (c.{@link #compare(Object, Object) compare(a,b) < 0) System.out.println("A:" + a + " < B:" + b);
  *     else System.out.println("A:" + a + " = B:" + b);
- * }
+ * }*
  *
  * </pre>
+ *
+ * @param <E> the type parameter
  * @author, 2001 duane a. bailey
  */
 public class ReverseComparator<E extends Comparable<E>>
                   implements Comparator<E>
 {
+    /**
+     * The Base.
+     */
     protected Comparator<E> base; // comparator whose ordering is reversed
 
     /**
      * Construct a comparator that generates reverse natural comparison
+     *
      * @post constructs a comparator that orders in reverse order
      */
     public ReverseComparator()
@@ -56,6 +63,7 @@ public class ReverseComparator<E extends Comparable<E>>
 
     /**
      * Construct a comparator that generates reverse of another comparator
+     *
      * @param base the ordering to be reversed
      * @post constructs a Comparator that orders in reverse order of base
      */

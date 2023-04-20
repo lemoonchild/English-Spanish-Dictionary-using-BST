@@ -5,9 +5,9 @@ package structure5;
 /**
  * This class implements a post-order traversal of a binary tree.
  * This iterator considers every node after its non-trivial descendants.
- * <P>
+ * <p>
  * Example usage:
- * <P>
+ * <p>
  * <pre>
  *      {@link structure.BinaryTree BinaryTree} t = new {@link structure.BinaryTree#BinaryTree() BinaryTree()};
  *      // ...tree is grown
@@ -21,9 +21,10 @@ package structure5;
  *      { .... }
  * </pre>
  *
- * @see BinaryTree#PostorderElements
- * @version $Id: BTPostorderIterator.java 35 2007-08-09 20:38:38Z bailey $
+ * @param <E> the type parameter
+ * @version $Id : BTPostorderIterator.java 35 2007-08-09 20:38:38Z bailey $
  * @author, 2001 duane a. bailey
+ * @see BinaryTree#PostorderElements BinaryTree#PostorderElements
  */
 class BTPostorderIterator<E> extends AbstractIterator<E>
 {
@@ -43,9 +44,8 @@ class BTPostorderIterator<E> extends AbstractIterator<E>
      * Construct an iterator to traverse subtree rooted at root
      * in post-order.
      *
-     * @post constructs an iterator to traverse in postorder
-     * 
      * @param root The root of the subtree to be traversed.
+     * @post constructs an iterator to traverse in postorder
      */
     public BTPostorderIterator(BinaryTree<E> root)
     {

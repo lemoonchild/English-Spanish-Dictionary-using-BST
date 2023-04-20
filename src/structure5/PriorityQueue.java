@@ -3,14 +3,15 @@
 package structure5;
 
 // ideally this would extend linear, but there are problems....
+
 /**
  * Interface describing an queue of prioritized values.
  * This linear-like structure has values that
  * are inserted in such a way as to allow them to be removed in
  * increasing order.
- * <P>
+ * <p>
  * Example usage:
- * <P>
+ * <p>
  * To print out a list of programmers sorted by age we could use the following:
  * <pre>
  * public static void main(String[] argv){
@@ -23,11 +24,11 @@ package structure5;
  *      programmers.add(new ComparableAssociation(new Integer(19), "Chris"));
  *      programmers.add(new ComparableAssociation(new Integer(20), "Shimon"));
  *      programmers.add(new ComparableAssociation(new Integer(21), "Diane"));
- *      programmers.add(new ComparableAssociation(new Integer(21), "Lida"));    
- *      programmers.add(new ComparableAssociation(new Integer(20), "Rob"));     
- *      programmers.add(new ComparableAssociation(new Integer(20), "Sean"));    
+ *      programmers.add(new ComparableAssociation(new Integer(21), "Lida"));
+ *      programmers.add(new ComparableAssociation(new Integer(20), "Rob"));
+ *      programmers.add(new ComparableAssociation(new Integer(20), "Sean"));
  *
- *      //print out programmers 
+ *      //print out programmers
  *      while(!programmers.{@link #isEmpty()}){
  *          ComparableAssociation p = (ComparableAssociation)programmers.{@link #remove()};
  *          System.out.println(p.getValue() + " is " + p.getKey() + " years old.");
@@ -35,7 +36,8 @@ package structure5;
  * }
  * </pre>
  *
- * @version $Id: PriorityQueue.java 22 2006-08-21 19:27:26Z bailey $
+ * @param <E> the type parameter
+ * @version $Id : PriorityQueue.java 22 2006-08-21 19:27:26Z bailey $
  * @author, 2001 duane a. bailey
  */
 public interface PriorityQueue<E extends Comparable<E>>
@@ -43,48 +45,43 @@ public interface PriorityQueue<E extends Comparable<E>>
     /**
      * Fetch lowest valued (highest priority) item from queue.
      *
+     * @return The smallest value from queue.
      * @pre !isEmpty()
      * @post returns the minimum value in priority queue
-     * 
-     * @return The smallest value from queue.
      */
     public E getFirst();
 
     /**
      * Returns the minimum value from the queue.
      *
+     * @return The minimum value in the queue.
      * @pre !isEmpty()
      * @post returns and removes minimum value from queue
-     * 
-     * @return The minimum value in the queue.
      */
     public E remove();
 
     /**
      * Add a value to the priority queue.
      *
+     * @param value The value to be added.
      * @pre value is non-null comparable
      * @post value is added to priority queue
-     * 
-     * @param value The value to be added.
      */
     public void add(E value);
 
     /**
      * Determine if the queue is empty.
      *
-     * @post returns true iff no elements are in queue
-     * 
      * @return True if the queue is empty.
+     * @post returns true iff no elements are in queue
      */
     public boolean isEmpty();
 
     /**
      * Determine the size of the queue.
      *
-     * @post returns number of elements within queue
-     * 
      * @return The number of elements within the queue.
+     * @post returns number of elements within queue
      */
     public int size();
 

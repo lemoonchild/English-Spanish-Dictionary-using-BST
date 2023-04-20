@@ -21,8 +21,9 @@ import java.util.Iterator;
  * designing data structures, it is often best to avoid direct implementation
  * <code>java.util.Collection</code> and <code>Structure</code> in one class.
  *
+ * @param <E> the type parameter
+ * @version $Id : AbstractStructure.java 22 2006-08-21 19:27:26Z bailey $
  * @author, 2001 duane a. bailey
- * @version $Id: AbstractStructure.java 22 2006-08-21 19:27:26Z bailey $
  * @since Java Structures, 2nd edition
  */
 public abstract class AbstractStructure<E> implements Structure<E>

@@ -2,18 +2,19 @@
 // (c) 1998, 2001 duane a. bailey
 package structure5;
 import java.util.Iterator;
+
 /**
  * An implementation of lists using doubly linked elements, similar to that of {@link java.util.LinkedList java.util.LinkedList}.
- * <p>       
+ * <p>
  * This class is a basic implementation of the {@link List} interface.
- * Operations accessing or modifying either the head or the tail of 
+ * Operations accessing or modifying either the head or the tail of
  * the list execute in constant time.
- * Doubly linked lists are less space-efficient than singly linked lists, 
+ * Doubly linked lists are less space-efficient than singly linked lists,
  * but tail-related operations are less costly.
  * <p>
  * Example usage:
- *
- * To place a copy of every unique parameter passed to a program into a 
+ * <p>
+ * To place a copy of every unique parameter passed to a program into a
  * DoublyLinkedList,  we would use the following:
  * <pre>
  * public static void main({@link java.lang.String String[]} arguments)
@@ -27,7 +28,9 @@ import java.util.Iterator;
  *    System.out.println(argList);
  * }
  * </pre>
- * @version $Id: DoublyLinkedList.java 31 2007-08-06 17:19:56Z bailey $
+ *
+ * @param <E> the type parameter
+ * @version $Id : DoublyLinkedList.java 31 2007-08-06 17:19:56Z bailey $
  * @author, 2001 duane a. bailey
  * @see SinglyLinkedList
  * @see CircularList
@@ -51,7 +54,6 @@ public class DoublyLinkedList<E> extends AbstractList<E>
      * Constructs an empty list.
      *
      * @post constructs an empty list
-     * 
      */
     public DoublyLinkedList()
     {

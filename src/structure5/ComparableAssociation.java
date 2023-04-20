@@ -2,11 +2,12 @@
 // (c) 1998, 2001 duane a. bailey
 package structure5;
 import java.util.Map;
+
 /**
- * A class implementing a comparable key-value pair.  This class associates an 
+ * A class implementing a comparable key-value pair.  This class associates an
  * immutable key with a mutable value.  Useful for many other structures.
  * Example usage:
- * <P>
+ * <p>
  * To print out a list of professors sorted by the number of classes
  * a particular student took from each, we could use the following:
  * <pre>
@@ -18,8 +19,8 @@ import java.util.Map;
  *      classesTaken.add(new {@link #ComparableAssociation(Comparable, Object) ComparableAssociation(new Integer(5), "Andrea")});
  *      classesTaken.add(new ComparableAssociation(new Integer(1), "Barbara"));
  *      classesTaken.add(new ComparableAssociation(new Integer(3), "Bill"));
- *      classesTaken.add(new ComparableAssociation(new Integer(2), "Duane"));   
- *      classesTaken.add(new ComparableAssociation(new Integer(1), "Tom"));     
+ *      classesTaken.add(new ComparableAssociation(new Integer(2), "Duane"));
+ *      classesTaken.add(new ComparableAssociation(new Integer(1), "Tom"));
  *
  *      //print out classes taken
  *      while(!classesTaken.isEmpty()){
@@ -27,8 +28,11 @@ import java.util.Map;
  *          System.out.println(p.{@link #getValue() getValue()} + " is " + p.{@link #getKey() getKey()} + " years old.");
  *      }
  * }
- * </pre>  
- * @version $Id: ComparableAssociation.java 34 2007-08-09 14:43:44Z bailey $
+ * </pre>
+ *
+ * @param <K> the type parameter
+ * @param <V> the type parameter
+ * @version $Id : ComparableAssociation.java 34 2007-08-09 14:43:44Z bailey $
  * @author, 2001 duane a. bailey
  */
 public class ComparableAssociation<K extends Comparable<K>,V>
@@ -40,10 +44,9 @@ public class ComparableAssociation<K extends Comparable<K>,V>
      * Construct an association that can be ordered, from only a key.
      * The value is set to null.
      *
+     * @param key The (comparable) key.
      * @pre key is non-null
      * @post constructs comparable association with null value
-     * 
-     * @param key The (comparable) key.
      */
     public ComparableAssociation(K key)
     {
@@ -53,11 +56,10 @@ public class ComparableAssociation<K extends Comparable<K>,V>
     /**
      * Construct a key-value association that can be ordered.
      *
+     * @param key   The (comparable) key.
+     * @param value The (possibly comparable) associated value.
      * @pre key is non-null
      * @post constructs association between a comparable key and a value
-     * 
-     * @param key The (comparable) key.
-     * @param value The (possibly comparable) associated value.
      */
     public ComparableAssociation(K key, V value)
     {

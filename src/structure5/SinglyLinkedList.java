@@ -4,9 +4,10 @@
 package structure5;
 import java.util.Iterator;
 import java.util.Enumeration;
+
 /**
  * An implementation of lists using singly linked elements, similar to that of {@link java.util.LinkedList java.util.LinkedList}.
- * <p>       
+ * <p>
  * This class is a basic implementation of the {@link List} interface.
  * Operations accessing or modifying the head of the list execute in constant
  * time.
@@ -16,8 +17,8 @@ import java.util.Enumeration;
  * costly than with doubly linked lists.
  * <p>
  * Example usage:
- *
- * To place a copy of every unique parameter passed to a program into a 
+ * <p>
+ * To place a copy of every unique parameter passed to a program into a
  * SinglyLinkedList,  we would use the following:
  * <pre>
  * public static void main({@link java.lang.String String[]} arguments)
@@ -31,7 +32,9 @@ import java.util.Enumeration;
  *    System.out.println(argList);
  * }
  * </pre>
- * @version $Id: SinglyLinkedList.java 31 2007-08-06 17:19:56Z bailey $
+ *
+ * @param <E> the type parameter
+ * @version $Id : SinglyLinkedList.java 31 2007-08-06 17:19:56Z bailey $
  * @author, 2001 duane a. bailey
  * @see DoublyLinkedList
  * @see CircularList

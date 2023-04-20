@@ -9,28 +9,30 @@ import java.util.Comparator;
  * Implementation of the {@link java.util.Comparator} interface that
  * provides a {@link #compare} method that compares two objects using those
  * objects default compareTo methods.
- *  
- * <P>
+ *
+ * <p>
  * Example usage:
- * <P>
+ * <p>
  * To print out the equality relationship between two randomly generated integers
  * we could use the following:
  * <pre>
  * public static void main(String[] argv){
  *     Random  rand = new Random();
  *     Comparator c = new {@link #NaturalComparator()};
- *      
+ *
  *     //generate two random Integers
  *     Integer a = new Integer(rand.nextInt(100));
  *     Integer b = new Integer(rand.nextInt(100));
- *      
+ *
  *     //print out the proper equality relationship between these integers
- *     if(c.{@link #compare(Object,Object) compare(a,b)} > 0) System.out.println("A:" + a + " > B:" + b);
- *     else if (c.{@link #compare(Object,Object) compare(a,b) < 0) System.out.println("A:" + a + " < B:" + b);
+ *     if(c.{@link #compare(Object, Object) compare(a,b)} > 0) System.out.println("A:" + a + " > B:" + b);
+ *     else if (c.{@link #compare(Object, Object) compare(a,b) < 0) System.out.println("A:" + a + " < B:" + b);
  *     else System.out.println("A:" + a + " = B:" + b);
- * }
+ * }*
  *
  * </pre>
+ *
+ * @param <E> the type parameter
  * @author, 2001 duane a. bailey
  */
 public class NaturalComparator<E extends Comparable<E>>

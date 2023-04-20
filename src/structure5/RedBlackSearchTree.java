@@ -7,28 +7,28 @@ import java.util.Random;
 
 /**
  * Red black trees, are binary trees that guarantee the following three properties. <BR>
- * 1. Every child of every leaf is considered black<BR> 
+ * 1. Every child of every leaf is considered black<BR>
  * 2. Every red node has two black children<BR>
  * 3. Every path from a node to a descendant leaf contains the same
- *    number of black nodes. <BR>
- * <P>
- * These properties ensure that elements can be inserted, deleted, and 
- * located in logorithmic time. 
- * <P>
+ * number of black nodes. <BR>
+ * <p>
+ * These properties ensure that elements can be inserted, deleted, and
+ * located in logorithmic time.
+ * <p>
  * Example usage:
- * <P>
+ * <p>
  * To create a red-black tree containing the months of the year
  * and to print out this tree as it grows we could use the following
- * <P>
+ * <p>
  * <pre>
  * public static void main(String[] argv){
  *     RedBlackSearchTree test = new {@link #RedBlackSearchTree()};
- *       
+ *
  *     //declare an array of months
- *     String[] months = new String[]{"March", "May", "November", "August", 
+ *     String[] months = new String[]{"March", "May", "November", "August",
  *                                    "April", "January", "December", "July",
  *                                    "February", "June", "October", "September"};
- *      
+ *
  *     //add the months to the tree and print out the tree as it grows
  *     for(int i=0; i < months.length; i++){
  *        test.{@link #add(Object) add(months[i])};
@@ -37,7 +37,8 @@ import java.util.Random;
  *  }
  * </pre>
  *
- * @version $Id: RedBlackSearchTree.java 22 2006-08-21 19:27:26Z bailey $
+ * @param <E> the type parameter
+ * @version $Id : RedBlackSearchTree.java 22 2006-08-21 19:27:26Z bailey $
  * @author, 2001 duane a. bailey & evan s. sandhaus
  * @see AVLTree
  * @see SplayTree
@@ -57,6 +58,7 @@ public class RedBlackSearchTree<E extends Comparable<E>> extends AbstractStructu
 
     /**
      * Constructs a red-black search tree with no data
+     *
      * @post Constructs an empty red-black tree
      */
     public RedBlackSearchTree()
@@ -146,16 +148,23 @@ public class RedBlackSearchTree<E extends Comparable<E>> extends AbstractStructu
         //Assert.pre(value instanceof Comparable,"value must implement Comparable");
         return root.contains(value) != null;
     }
-    
+
+    /**
+     * Get e.
+     *
+     * @param value the value
+     * @return the e
+     */
     public E get(E value){
     	return root.contains(value).value;
     }
-    
+
     /**
      * Returns true iff this tree is a red-black tree.
      * <font color="#FF0000">WARNING:</font> This method executes in linear time
-     * and should not be frequently called during the process of insertion and 
+     * and should not be frequently called during the process of insertion and
      * deletion if the user wants
+     *
      * @return True iff this tree is a red-black tree.
      */
     public boolean isRedBlack()
@@ -178,13 +187,13 @@ public class RedBlackSearchTree<E extends Comparable<E>> extends AbstractStructu
 
     /**
      * Returns a (possibly long) string representing tree.  Differs
-     * from {@link #toString()} in that {@link #toString()} outputs 
+     * from {@link #toString()} in that {@link #toString()} outputs
      * a single line representation of the contents of the tree.
-     * <code>treeString</code>, however, prints out a graphical 
+     * <code>treeString</code>, however, prints out a graphical
      * representations of the tree's <i>structure</i>.
-     * 
-     * @post Generates a string representation of the AVLST
+     *
      * @return String representation of tree
+     * @post Generates a string representation of the AVLST
      */
     public String treeString(){
         return root.treeString();

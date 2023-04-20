@@ -7,9 +7,9 @@ package structure5;
  * Implementation of a set of numbered bits.  This class's interface
  * differs from the {@link structure.Set}, {@link java.util.Bitset},
  * and {@link java.util.Set} interfaces, so care must be taken to
- * invoke the proper methods. 
+ * invoke the proper methods.
  *
- * @version $Id: BitSet.java 22 2006-08-21 19:27:26Z bailey $
+ * @version $Id : BitSet.java 22 2006-08-21 19:27:26Z bailey $
  * @author, 2001 duane a. bailey
  * @see structure.CharSet
  * @see java.util.BitSet
@@ -47,9 +47,8 @@ public class BitSet
      * Constructs an empty bitset with potential to hold values between
      * 0..count-1.
      *
-     * @post constructs an empty set with count potential elements
-     * 
      * @param count The number of distinct values possibly in set.
+     * @post constructs an empty set with count potential elements
      */
     public BitSet(int count)
     {   
@@ -60,10 +59,9 @@ public class BitSet
      * Adds a bit to the bitset, if not already there.
      * Set is potentially extended.
      *
+     * @param i The number of  the bit to be added.
      * @pre i >= 0
      * @post i is added to the set
-     * 
-     * @param i  The number of  the bit to be added.
      */
     public void add(int i)
     {
@@ -76,10 +74,9 @@ public class BitSet
     /**
      * Remove bit i from the bitset.
      *
+     * @param i The index of the bit to be removed.
      * @pre i >= 0
      * @post removes i from set if present
-     * 
-     * @param i The index of the bit to be removed.
      */
     public void remove(int i)
     {
@@ -89,14 +86,14 @@ public class BitSet
             data[index] &= ~(1<<offset);
         }
     }
+
     /**
      * Determine if a bit is a member of the set.
      *
-     * @pre i >= 0
-     * @post returns true iff i in set
-     * 
      * @param i The bit index of potential bit.
      * @return True iff bit i is in the set.
+     * @pre i >= 0
+     * @post returns true iff i in set
      */
     public boolean contains(int i)
     {
@@ -116,9 +113,8 @@ public class BitSet
     /**
      * Remove bits from set; set size to count.
      *
-     * @post removes all values from set, sets set size to count
-     * 
      * @param count The new capacity of the newly empty set.
+     * @post removes all values from set, sets set size to count
      */
     public void clear(int count)
     {
@@ -153,11 +149,10 @@ public class BitSet
      * Compute a new set that is the union of this set and other.
      * Elements of the new set appear in at least one of the two sets.
      *
-     * @pre other is non-null
-     * @post constructs set w/elements from this and other
-     * 
      * @param other The set to be unioned with this.
      * @return The union of the two sets.
+     * @pre other is non-null
+     * @post constructs set w/elements from this and other
      */
     public Object union(BitSet other)
     {
@@ -181,10 +176,10 @@ public class BitSet
      * Return the intersection of this set and the other.
      * A bit is in the result if it is in this set and other.
      *
+     * @param other The other set to be intersected with this.
+     * @return the object
      * @pre other is not null
      * @post constructs set w/elements in this and other
-     * 
-     * @param other The other set to be intersected with this.
      */
     public Object intersection(BitSet other)
     {
@@ -204,10 +199,10 @@ public class BitSet
      * Computes the difference between this set and the other.
      * An element is in the difference if it is in this, but not in other.
      *
+     * @param other The difference between this set and other.
+     * @return the object
      * @pre other is not null
      * @post constructs set w/elements from this but not other
-     * 
-     * @param other The difference between this set and other.
      */
     public Object difference(BitSet other)
     {
@@ -238,11 +233,10 @@ public class BitSet
      * A set is a subset of another if its elements are elements
      * of the other.
      *
-     * @pre other is not null
-     * @post returns true iff elements of this are all in other
-     * 
      * @param other The potential superset.
      * @return The difference between this and other.
+     * @pre other is not null
+     * @post returns true iff elements of this are all in other
      */
     public boolean subset(BitSet other)
     {
@@ -270,9 +264,8 @@ public class BitSet
     /**
      * Determine if a set is empty.
      *
-     * @post returns true iff this set is empty
-     * 
      * @return True iff this set is empty.
+     * @post returns true iff this set is empty
      */
     public boolean isEmpty()
     {
@@ -311,24 +304,23 @@ public class BitSet
     /**
      * Determine the int index associated with a bit number.
      *
+     * @param b the b
+     * @return the index in array of bit b.
      * @pre bit >= 0
      * @post returns index of integer containing bit b
-     * 
-     * @return the index in array of bit b.
      */
     protected int indexOf(int b)
     {
         return b/bitsPerInt;
-    }   
+    }
 
     /**
      * Return the bit index within the associated int of bit "bit"
      *
-     * @pre bit >= 0
-     * @post returns bit position of bit in word
-     *
      * @param bit The index of the bit in set.
      * @return The index of the bit desired, within the word.
+     * @pre bit >= 0
+     * @post returns bit position of bit in word
      */
     protected int offsetOf(int bit)
     {
@@ -338,6 +330,7 @@ public class BitSet
     /**
      * Ensures that bit "bit" is within capacity of set.
      *
+     * @param bit the bit
      * @pre bit >= 0
      * @post ensures set is large enough to contain bit
      */
@@ -365,11 +358,10 @@ public class BitSet
     /**
      * Determines if bit is within capacity of set.
      *
-     * @pre bit >= 0
-     * @post Returns rue if set is large enough to contain bit
-     * 
      * @param bit The index of desired bit.
      * @return True if index of bit is within array.
+     * @pre bit >= 0
+     * @post Returns rue if set is large enough to contain bit
      */
     protected boolean probe(int bit)
     {

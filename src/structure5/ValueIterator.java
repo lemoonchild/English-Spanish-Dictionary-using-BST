@@ -2,15 +2,16 @@
 // (c) 1998, 2001 duane a. bailey
 package structure5;
 import java.util.Iterator;
+
 /**
  * A private master iterator for filtering the value fields from
  * an Association-returning iterator.This iterator returns
  * objects of the {@link java.lang.Object} type, and is
- * publicly available throught the {@link structure.Hashtable#iterator()} 
+ * publicly available throught the {@link structure.Hashtable#iterator()}
  * method.
- * <P>
+ * <p>
  * Typical use:
- * <P>
+ * <p>
  * <pre>
  *      Hashtable h = new Hashtable();
  *      // ...hashtable gets built up...
@@ -21,7 +22,9 @@ import java.util.Iterator;
  *      }
  * </pre>
  *
- * @version $Id: ValueIterator.java 35 2007-08-09 20:38:38Z bailey $
+ * @param <K> the type parameter
+ * @param <V> the type parameter
+ * @version $Id : ValueIterator.java 35 2007-08-09 20:38:38Z bailey $
  * @author, 2001 duane a. bailey
  */
 class ValueIterator<K,V> extends AbstractIterator<V>
@@ -30,7 +33,7 @@ class ValueIterator<K,V> extends AbstractIterator<V>
      * The underlying iterator.
      * The slave iterator provides the value iterator values which
      * are Associations.  The value iterator returns only the value-portion
-     * of the Associations.     
+     * of the Associations.
      */
     protected AbstractIterator<Association<K,V>> slave;
 
@@ -38,10 +41,9 @@ class ValueIterator<K,V> extends AbstractIterator<V>
      * Construct a new value iterator that filters the slave iterator,
      * an Association-returning iterator.
      *
+     * @param slave The slave iterator.
      * @pre slave is an iterator returning Association elements
      * @post creates a new iterator returning associated values
-     * 
-     * @param slave The slave iterator.
      */
     @SuppressWarnings("unchecked")
     public <T extends Association<K,V>> ValueIterator(Iterator<T> slave)

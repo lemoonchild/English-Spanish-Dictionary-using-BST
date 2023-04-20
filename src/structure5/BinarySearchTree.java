@@ -8,21 +8,21 @@ import java.util.Comparator;
  * A binary search tree structure.  This structure maintains data
  * in an ordered tree.  It does not keep the tree balanced, so performance
  * may degrade if the tree height is not optimal.
- * <P>
+ * <p>
  * Example usage:
- * <P>
+ * <p>
  * To create a Binary search tree containing the months of the year
  * and to print out this tree as it grows we could use the following.
- * <P>
+ * <p>
  * <pre>
  * public static void main(String[] argv){
  *     BinarySearchTree test = new {@link  #BinarySearchTree()};
- *       
+ *
  *     //declare an array of months
- *     String[] months = new String[]{"March", "May", "November", "August", 
+ *     String[] months = new String[]{"March", "May", "November", "August",
  *                                    "April", "January", "December", "July",
  *                                    "February", "June", "October", "September"};
- *      
+ *
  *     //add the months to the tree and print out the tree as it grows
  *     for(int i=0; i < months.length; i++){
  *        test.{@link #add(Object) add(months[i])};
@@ -31,7 +31,8 @@ import java.util.Comparator;
  *  }
  * </pre>
  *
- * @version $Id: BinarySearchTree.java 22 2006-08-21 19:27:26Z bailey $
+ * @param <E> the type parameter
+ * @version $Id : BinarySearchTree.java 22 2006-08-21 19:27:26Z bailey $
  * @author, 2001 duane a. bailey
  * @see SplayTree
  * @see BinaryTree
@@ -51,7 +52,7 @@ public class BinarySearchTree<E extends Comparable<E>>
 
     /**
      * The number of nodes in the tree
-     */ 
+     */
     protected int count;
     /**
      * The ordering used on this search tree.
@@ -72,6 +73,7 @@ public class BinarySearchTree<E extends Comparable<E>>
     /**
      * Constructs a binary search tree with no data
      *
+     * @param alternateOrder the alternate order
      * @post Constructs an empty binary search tree
      */
     public BinarySearchTree(Comparator<E> alternateOrder)
@@ -115,11 +117,15 @@ public class BinarySearchTree<E extends Comparable<E>>
     {
         return count;
     }
-    
+
     /**
+     * Locate binary tree.
+     *
+     * @param root  the root
+     * @param value the value
+     * @return the binary tree
      * @pre root and value are non-null
-     * @post returned: 1 - existing tree node with the desired value, or
-     *                 2 - the node to which value should be added
+     * @post returned : 1 - existing tree node with the desired value, or                 2 - the node to which value should be added
      */
     protected BinaryTree<E> locate(BinaryTree<E> root, E value)
     {
@@ -144,6 +150,12 @@ public class BinarySearchTree<E extends Comparable<E>>
         }
     }
 
+    /**
+     * Predecessor binary tree.
+     *
+     * @param root the root
+     * @return the binary tree
+     */
     protected BinaryTree<E> predecessor(BinaryTree<E> root)
     {
         Assert.pre(!root.isEmpty(), "No predecessor to middle value.");
@@ -154,7 +166,13 @@ public class BinarySearchTree<E extends Comparable<E>>
         }
         return result;
     }
-    
+
+    /**
+     * Successor binary tree.
+     *
+     * @param root the root
+     * @return the binary tree
+     */
     protected BinaryTree<E> successor(BinaryTree<E> root)
     {
         Assert.pre(!root.isEmpty(), "Tree is non-null.");
@@ -219,15 +237,14 @@ public class BinarySearchTree<E extends Comparable<E>>
 
     /**
      * Returns reference to value found within three.  This method can
-     * be potentially dangerous if returned value is modified: if 
+     * be potentially dangerous if returned value is modified: if
      * modification would change the relation of value to others within
      * the tree, the consistency of the structure is lost
      * <b>Don't modify returned value</b>
      *
-     * @post Returns object found in tree, or null
-     * 
-     * @param val Value sought from within tree
+     * @param value the value
      * @return A value "equals to" value sought; otherwise null
+     * @post Returns object found in tree, or null
      */
     public E get(E value)
     {
@@ -285,11 +302,10 @@ public class BinarySearchTree<E extends Comparable<E>>
      * Removes the top node of the tree rooted, performs the necissary
      * rotations to reconnect the tree.
      *
+     * @param topNode Contains the value we want to remove
+     * @return The root of a new binary tree containing all of topNodes  descendents and rooted at topNode's predecessor
      * @pre topNode contains the value we want to remove
      * @post We return an binary tree rooted with the predecessor of topnode.
-     * @param topNode Contains the value we want to remove
-     * @return The root of a new binary tree containing all of topNodes 
-     * descendents and rooted at topNode's predecessor
      */
     protected BinaryTree<E> removeTop(BinaryTree<E> topNode)
     {
@@ -350,17 +366,17 @@ public class BinarySearchTree<E extends Comparable<E>>
      */
     public int hashCode(){
         return root.hashCode();
-    } 
+    }
 
     /**
      * Returns a (possibly long) string representing tree.  Differs
-     * from {@link #toString()} in that {@link #toString()} outputs 
+     * from {@link #toString()} in that {@link #toString()} outputs
      * a single line representation of the contents of the tree.
-     * <code>treeString</code>, however, prints out a graphical 
+     * <code>treeString</code>, however, prints out a graphical
      * representations of the tree's <i>structure</i>.
-     * 
-     * @post Generates a string representation of the AVLST
+     *
      * @return String representation of tree
+     * @post Generates a string representation of the AVLST
      */
     public String treeString(){
         return root.treeString();

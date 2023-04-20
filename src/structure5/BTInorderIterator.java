@@ -8,9 +8,9 @@ package structure5;
  * traversal.  Every node is considered after every left descendant,
  * but before any right descendant.  AbstractIterator finishes when
  * all descendants of the start node have been considered.
- * <P>
+ * <p>
  * Example usage:
- * <P>
+ * <p>
  * <pre>
  *      {@link structure.BinaryTree BinaryTree} t = new {@link structure.BinaryTree#BinaryTree() BinaryTree()};
  *      // ...tree is grown
@@ -24,7 +24,8 @@ package structure5;
  *      { .... }
  * </pre>
  *
- * @version $Id: BTInorderIterator.java 35 2007-08-09 20:38:38Z bailey $
+ * @param <E> the type parameter
+ * @version $Id : BTInorderIterator.java 35 2007-08-09 20:38:38Z bailey $
  * @author, 2001 duane a. bailey
  */
 class BTInorderIterator<E> extends AbstractIterator<E>
@@ -34,7 +35,7 @@ class BTInorderIterator<E> extends AbstractIterator<E>
      */
     protected BinaryTree<E> root;    // root of subtree to be traversed
 
-    /** 
+    /**
      * Stack of nodes that maintain the state of the iterator.
      */
     protected Stack<BinaryTree<E>> todo; // stack of unvisited ancestors
@@ -42,9 +43,8 @@ class BTInorderIterator<E> extends AbstractIterator<E>
     /**
      * Construct a new inorder iterator of a tree.
      *
-     * @post Constructs an iterator to traverse inorder
-     * 
      * @param root The root of the subtree to be traversed.
+     * @post Constructs an iterator to traverse inorder
      */
     public BTInorderIterator(BinaryTree<E> root)
     {

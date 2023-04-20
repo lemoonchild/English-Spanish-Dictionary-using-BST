@@ -5,49 +5,49 @@ package structure5;
 import java.util.Iterator;
 
 /**
- * A GraphListUndirected is a list-based graph representation that consists 
+ * A GraphListUndirected is a list-based graph representation that consists
  * of a collection of vertices and undirected edges.  Portions of the graph
- * may be marked visited to support iterative algorithms.  
+ * may be marked visited to support iterative algorithms.
  * Iteration is provided over vertices, edges, and vertices adjacent to a
  * particular vertex.
- * <P>
- * Example Usage: 
- * <P> 
+ * <p>
+ * Example Usage:
+ * <p>
  * To create a graph representation of the movie theaters nearest
- * the Williams College Department of Computer Science's unix laboratory, 
+ * the Williams College Department of Computer Science's unix laboratory,
  * and to print these theaters out in order of increasing distance,
  * we could use the following:
- * <P>
+ * <p>
  * <pre>
  *  public static void main(String[] argv){
  *      Graph theaters = new {@link #GraphListUndirected()};
  *      FibHeap heap = new FibHeap();
- *      
- *      //instantiate array of locations 
- *      String[] locations = new String[]{"TCL 312", "Images Cinema", 
- *                                        "Movie Plex 3", "Cinema 1,2,&3", 
+ *
+ *      //instantiate array of locations
+ *      String[] locations = new String[]{"TCL 312", "Images Cinema",
+ *                                        "Movie Plex 3", "Cinema 1,2,&3",
  *                                        "Cinema 7", "Berkshire Mall Cinemas"
  *                                        ,"Hathaway's Drive Inn Theatre",
  *                                        "Hollywood Drive-In Theatre"};
  *
- *      //instantiate array of distances between <code>location[0]</code> 
+ *      //instantiate array of distances between <code>location[0]</code>
  *      //and movie theaters
- *      double[] distances =  new double[]{-1, 0.0, 12.6, 12.9, 12.9, 
+ *      double[] distances =  new double[]{-1, 0.0, 12.6, 12.9, 12.9,
  *                                         14.7, 16.5, 18.0};
- *      
+ *
  *      //build graph
  *      for(int i=0; i < locations.length; i++) theaters.add(locations[i]);
  *      for(int i=1; i < distances.length; i++){
  *        theaters.{@link #addEdge(Object, Object, Object) addEdge(locations[0],locations[i],new Double(distances[i]))};
  *      }
- *      
+ *
  *      //place neighbors of lab in into priority queue
  *      for(Iterator i=theaters.{@link #neighbors(Object) neighbors(locations[0])}; i.hasNext();){
  *          Object theater = i.next();
- *          Object distance = theaters.{@link #getEdge(Object,Object) getEdge(locations[0], theater).label()};
+ *          Object distance = theaters.{@link #getEdge(Object, Object) getEdge(locations[0], theater).label()};
  *          heap.add(new ComparableAssociation((Comparable)distance,theater));
  *      }
- *      
+ *
  *      //print out theaters in order of distance
  *      while(!heap.isEmpty()){
  *          ComparableAssociation show = (ComparableAssociation)heap.remove();
@@ -55,8 +55,10 @@ import java.util.Iterator;
  *      }
  *  }
  * </pre>
- * 
- * @version $Id: GraphListUndirected.java 22 2006-08-21 19:27:26Z bailey $
+ *
+ * @param <V> the type parameter
+ * @param <E> the type parameter
+ * @version $Id : GraphListUndirected.java 22 2006-08-21 19:27:26Z bailey $
  * @author, 2001 duane a. bailey and kimberly tabtiang
  * @see GraphList
  * @see GraphListDirected

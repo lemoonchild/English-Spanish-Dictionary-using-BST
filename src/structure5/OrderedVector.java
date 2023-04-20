@@ -8,9 +8,9 @@ import java.util.Iterator;
  * Implementation of an ordered structure implemented using a vector.
  * Values are stored within this vector in increasing order. All values
  * stored within an ordered vector must implement comparable.
- * <P>
+ * <p>
  * Example Usage:
- * <P>
+ * <p>
  * To determine the effect of the original Starwars&trade; movie on the careers
  * of its stars, we could place ComparableAssociations between each star's
  * name and the number of movies they have been in since Starwars&trade;
@@ -19,25 +19,27 @@ import java.util.Iterator;
  * public static void main(String[] argv){
  *      //instantiate an ordered vector
  *      OrderedVector<ComparableAssociation<Integer,String>> v = new {@link #OrderedVector<ComparableAssociation<Integer,String>>()};
- *      
+ *
  *      //add the cast members of the original star wars along with
  *      //the number of films in which the have subsequently appeared
  *      v.{@link #add(Object) add(new ComparableAssociation<Integer,String>(new Integer(12),"Sir Alec Guiness"))};
  *      v.{@link #add(Object) add(new ComparableAssociation<Integer,String>(new Integer(24),"Carrie Fisher"))};
- *      v.{@link #add(Object) add(new ComparableAssociation<Integer,String>(new Integer(28),"Harrison Ford"))}; 
+ *      v.{@link #add(Object) add(new ComparableAssociation<Integer,String>(new Integer(28),"Harrison Ford"))};
  *      v.{@link #add(Object) add(new ComparableAssociation<Integer,String>(new Integer(28),"Mark Hamill"))};
  *
  *      //print out the results
  *      for(Iterator<ComparableAssociation<Integer,String>> i = v.{@link #iterator()}; i.hasNext();){
  *          ComparableAssociation<Integer,String>> actor = i.next();
- *          System.out.println(actor.getValue() + " has been in " + 
- *                             actor.getKey() + " movies since Star Wars"); 
+ *          System.out.println(actor.getValue() + " has been in " +
+ *                             actor.getKey() + " movies since Star Wars");
  *      }
  *   }
  * </pre>
- * @see structure.Vector
- * @version $Id: OrderedVector.java 34 2007-08-09 14:43:44Z bailey $
+ *
+ * @param <E> the type parameter
+ * @version $Id : OrderedVector.java 34 2007-08-09 14:43:44Z bailey $
  * @author, 2001 duane a. bailey
+ * @see structure.Vector
  */
 public class OrderedVector<E extends Comparable<E>>
     extends AbstractStructure<E>
@@ -47,6 +49,7 @@ public class OrderedVector<E extends Comparable<E>>
      * The vector of values.  Values are stored in increasing order
      */
     protected Vector<E> data;
+
     /**
      * Construct an empty ordered vector
      *
@@ -159,6 +162,12 @@ public class OrderedVector<E extends Comparable<E>>
         return data.iterator();
     }
 
+    /**
+     * Locate int.
+     *
+     * @param target the target
+     * @return the int
+     */
     protected int locate(E target)
     {
         Comparable<E> midValue;

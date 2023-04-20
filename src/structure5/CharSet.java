@@ -10,14 +10,17 @@ package structure5;
  * differs from the {@link structure.Set}, {@link java.util.Bitset},
  * and {@link java.util.Set} interfaces, so care must be taken to
  * invoke the proper methods.
- * 
- * @version $Id: CharSet.java 22 2006-08-21 19:27:26Z bailey $
+ *
+ * @version $Id : CharSet.java 22 2006-08-21 19:27:26Z bailey $
  * @author, 2001 duane a. bailey
  * @see structure.BitSet
  * @see java.util.BitSet
  */
 public class CharSet
 {
+    /**
+     * The S.
+     */
     protected BitSet s; // underlying set of bits 0..255
 
     /**
@@ -29,13 +32,12 @@ public class CharSet
     {   
         s = new BitSet();
     }
-    
+
     /**
      * Adds character c to set if not already there.
      *
-     * @post adds c to set
-     * 
      * @param c The character to be added to set.
+     * @post adds c to set
      */
     public void add(char c)
     {
@@ -45,9 +47,8 @@ public class CharSet
     /**
      * Removes a character from set.  Does nothing if char not in set.
      *
-     * @post removes c from set, if present
-     * 
      * @param c The character to be removed.
+     * @post removes c from set, if present
      */
     public void remove(char c)
     {
@@ -57,10 +58,9 @@ public class CharSet
     /**
      * Detects whether c is a member of this set.
      *
-     * @post returns true iff c in set
-     * 
      * @param c The char sought.
      * @return True iff c is a member of this set.
+     * @post returns true iff c in set
      */
     public boolean contains(char c)
     {
@@ -94,11 +94,10 @@ public class CharSet
     /**
      * Constructs a charset that is the union of this and other.
      *
-     * @pre other is not null
-     * @post returns new set with characters from this or other
-     * 
      * @param other The other character set.
      * @return The result of the union --- contains c if in either set.
+     * @pre other is not null
+     * @post returns new set with characters from this or other
      */
     public Object union(CharSet other)
     {
@@ -108,11 +107,10 @@ public class CharSet
     /**
      * Computes the intersection of this charset and other.
      *
-     * @pre other is not null
-     * @post returns new set with characters from this and other
-     * 
      * @param other The other character set.
      * @return The intersection of this and other --- char in result if in both.
+     * @pre other is not null
+     * @post returns new set with characters from this and other
      */
     public Object intersection(CharSet other)
     {
@@ -122,11 +120,10 @@ public class CharSet
     /**
      * Computes the difference between this and other charset.
      *
-     * @pre other is not null
-     * @post returns new set with characters from this but not other
-     * 
      * @param other The other character set.
      * @return the result of difference --- chars in this but not other.
+     * @pre other is not null
+     * @post returns new set with characters from this but not other
      */
     public Object difference(CharSet other)
     {
@@ -136,10 +133,10 @@ public class CharSet
     /**
      * Detects if this set within the other.
      *
+     * @param other The potential superset.
+     * @return the boolean
      * @pre other is not null
      * @post returns true if this is a subset of other
-     * 
-     * @param other The potential superset.
      * @returns True if every element of this is in other.
      */
     public boolean subset(CharSet other)
@@ -150,9 +147,8 @@ public class CharSet
     /**
      * Detect an empty charset.
      *
-     * @post returns true iff set is empty
-     * 
      * @return True if this charset is empty.
+     * @post returns true iff set is empty
      */
     public boolean isEmpty()
     {

@@ -2,13 +2,14 @@
 // (c) 1998, 2001 duane a. bailey
 
 package structure5;
+
 /**
  * An iterator for traversing the elements of a circular list.
  * The iterator traverses the list beginning at the head, and heads toward
  * tail.
- * <P>
+ * <p>
  * Typical use:
- * <P>
+ * <p>
  * <pre>
  *      List l = new CircularList();
  *      // ...list gets built up...
@@ -22,7 +23,9 @@ package structure5;
  *      while (li.hasNext())
  *      { .... }
  * </pre>
- * @version $Id: CircularListIterator.java 31 2007-08-06 17:19:56Z bailey $
+ *
+ * @param <E> the type parameter
+ * @version $Id : CircularListIterator.java 31 2007-08-06 17:19:56Z bailey $
  * @author, 2001 duane a. bailey
  */
 class CircularListIterator<E> extends AbstractIterator<E>
@@ -39,10 +42,9 @@ class CircularListIterator<E> extends AbstractIterator<E>
     /**
      * Constructs an iterator over circular list whose tail is t
      *
+     * @param t The tail of the list to be traversed.
      * @pre t is a reference to a circular list element
      * @post constructs an iterator for traversing circular list
-     * 
-     * @param t The tail of the list to be traversed.
      */
     public CircularListIterator(Node<E> t)
     {

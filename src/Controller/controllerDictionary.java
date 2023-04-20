@@ -5,10 +5,22 @@ import Model.treeStructure;
 
 import java.util.ArrayList;
 
+/**
+ * The type Controller dictionary.
+ */
 public class controllerDictionary {
 
+    /**
+     * The Verify.
+     */
     public ArrayList<String> verify = new ArrayList<>();
 
+    /**
+     * Create word array list.
+     *
+     * @param dictionary the dictionary
+     * @return the array list
+     */
     public ArrayList<Word> createWord(ArrayList<String[]> dictionary){
         
         ArrayList<Word> finalWords = new ArrayList<>();
@@ -27,6 +39,14 @@ public class controllerDictionary {
         return finalWords; 
 
     }
+
+    /**
+     * Translate word.
+     *
+     * @param dictionaryWords the dictionary words
+     * @param userInput       the user input
+     * @param structure       the structure
+     */
     public void translateWord(ArrayList<Word> dictionaryWords, ArrayList<String> userInput, treeStructure<Word> structure){
         
         for (Word dictWords : dictionaryWords) {

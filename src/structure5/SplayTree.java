@@ -9,21 +9,21 @@ import java.util.Comparator;
  * An implementation of binary search trees, based on a splay operation
  * by Tarjan et al.  An extension of the binary search tree class that decreases
  * the likelyhood of a binary tree becomming degenerate.
- *
+ * <p>
  * Example usage:
- * <P>
+ * <p>
  * To create a  splay tree containing the months of the year
  * and to print out this tree as it grows we could use the following.
- * <P>
+ * <p>
  * <pre>
  * public static void main(String[] argv){
  *     SplayTree test = new {@link  #SplayTree()};
- *       
+ *
  *     //declare an array of months
- *     String[] months = new String[]{"March", "May", "November", "August", 
+ *     String[] months = new String[]{"March", "May", "November", "August",
  *                                    "April", "January", "December", "July",
  *                                    "February", "June", "October", "September"};
- *      
+ *
  *     //add the months to the tree and print out the tree as it grows
  *     for(int i=0; i < months.length; i++){
  *        test.{@link #add(Object) add(months[i])};
@@ -32,7 +32,8 @@ import java.util.Comparator;
  *  }
  * </pre>
  *
- * @version $Id: SplayTree.java 35 2007-08-09 20:38:38Z bailey $
+ * @param <E> the type parameter
+ * @version $Id : SplayTree.java 35 2007-08-09 20:38:38Z bailey $
  * @author, 2001 duane a. bailey
  */
 public class SplayTree<E extends Comparable<E>>
@@ -42,7 +43,6 @@ public class SplayTree<E extends Comparable<E>>
      * Construct an empty search tree.
      *
      * @post construct a new splay tree
-     * 
      */
     public SplayTree()
     {
@@ -52,9 +52,8 @@ public class SplayTree<E extends Comparable<E>>
     /**
      * Construct an empty search tree.
      *
-     * @post construct a new splay tree
      * @param alternateOrder the ordering imposed on the values inserted
-     * 
+     * @post construct a new splay tree
      */
     public SplayTree(Comparator<E> alternateOrder)
     {
@@ -183,6 +182,11 @@ public class SplayTree<E extends Comparable<E>>
         return null;
     }
 
+    /**
+     * Splay.
+     *
+     * @param splayedNode the splayed node
+     */
     protected void splay(BinaryTree<E> splayedNode)
     {
         BinaryTree<E> parent,grandParent;

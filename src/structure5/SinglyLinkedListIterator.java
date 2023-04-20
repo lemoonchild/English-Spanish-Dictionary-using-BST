@@ -1,13 +1,14 @@
 // Implementation of an iterator for elements of a singly linked list.
 // (c) 1998, 2001 duane a. bailey
 package structure5;
+
 /**
  * An iterator for traversing the elements of a singly linked list.
  * The iterator traverses the list beginning at the head, and heads toward
  * tail.
- * <P>
+ * <p>
  * Typical use:
- * <P>
+ * <p>
  * <pre>
  *      List l = new SinglyLinkedList();
  *      // ...list gets built up...
@@ -21,7 +22,9 @@ package structure5;
  *      while (li.hasNext())
  *      { .... }
  * </pre>
- * @version $Id: SinglyLinkedListIterator.java 31 2007-08-06 17:19:56Z bailey $
+ *
+ * @param <E> the type parameter
+ * @version $Id : SinglyLinkedListIterator.java 31 2007-08-06 17:19:56Z bailey $
  * @author, 2001 duane a. bailey
  */
 class SinglyLinkedListIterator<E> extends AbstractIterator<E>
@@ -38,9 +41,8 @@ class SinglyLinkedListIterator<E> extends AbstractIterator<E>
     /**
      * Construct an iterator that traverses list beginning at t.
      *
-     * @post returns an iterator that traverses a linked list
-     * 
      * @param t The first element of list to be traversed.
+     * @post returns an iterator that traverses a linked list
      */
     public SinglyLinkedListIterator(Node<E> t)
     {

@@ -7,9 +7,9 @@ import java.util.Iterator;
 /**
  * Implementation of graph using adjacency lists.
  * Edges are stored in lists off of vertex structure.
- * Class is abstract: you must use GraphListDirected or 
+ * Class is abstract: you must use GraphListDirected or
  * GraphListUndirected to construct particular instances of graphs.
- *
+ * <p>
  * Typical usage:
  * <pre>
  *     Graph g = new GraphListDirected();
@@ -19,7 +19,9 @@ import java.util.Iterator;
  *     ...
  * </pre>
  *
- * @version $Id: GraphList.java 35 2007-08-09 20:38:38Z bailey $
+ * @param <V> the type parameter
+ * @param <E> the type parameter
+ * @version $Id : GraphList.java 35 2007-08-09 20:38:38Z bailey $
  * @author, 2001 duane a. bailey and kimberly tabtiang
  * @see GraphListDirected
  * @see GraphListUndirected
@@ -356,6 +358,12 @@ abstract public class GraphList<V,E> extends AbstractStructure<V> implements Gra
     {
         return directed;
     }
+
+    /**
+     * Main.
+     *
+     * @param argv the argv
+     */
     public static void main(String[] argv){
         Graph<String,Double> theaters = new GraphListDirected<String,Double>();
         SkewHeap<ComparableAssociation<Double,String>> heap = new SkewHeap<ComparableAssociation<Double,String>>();

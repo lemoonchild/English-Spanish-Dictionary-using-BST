@@ -8,9 +8,9 @@ import java.util.Iterator;
  * Implementation of graph using adjacency matrices.
  * User must commit to maximum size of graph (in vertices); it may be smaller.
  * Edges are stored in matrix.  Not suitable for large graphs.
- * Class is abstract: you must use GraphMatrixDirected or 
+ * Class is abstract: you must use GraphMatrixDirected or
  * GraphMatrixUndirected to construct particular instances of graphs.
- *
+ * <p>
  * Typical usage:
  * <pre>
  *     Graph g = new GraphMatrixUndirected();
@@ -20,7 +20,9 @@ import java.util.Iterator;
  *     ...
  * </pre>
  *
- * @version $Id: GraphMatrix.java 35 2007-08-09 20:38:38Z bailey $
+ * @param <V> the type parameter
+ * @param <E> the type parameter
+ * @version $Id : GraphMatrix.java 35 2007-08-09 20:38:38Z bailey $
  * @author, 2001 duane a. bailey and kimberly tabtiang
  * @see GraphMatrixDirected
  * @see GraphMatrixUndirected
@@ -55,7 +57,7 @@ abstract public class GraphMatrix<V,E>
      * Constructor of directed/undirected GraphMatrix. Protected constructor.
      *
      * @param size Maximum size of graph.
-     * @param dir True if graph is to be directed.
+     * @param dir  True if graph is to be directed.
      */
     protected GraphMatrix(int size, boolean dir)
     {

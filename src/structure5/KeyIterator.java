@@ -7,11 +7,11 @@ import java.util.Iterator;
  * A private master iterator for filtering the key fields from
  * an Association-returning iterator. This iterator returns
  * objects of the {@link java.lang.Comparable} type, and is
- * publically available throught the {@link structure.Hashtable#keys()} 
+ * publically available throught the {@link structure.Hashtable#keys()}
  * method.
- * <P>
+ * <p>
  * Typical use:
- * <P>
+ * <p>
  * <pre>
  *      Hashtable h = new Hashtable();
  *      // ...hashtable gets built up...
@@ -21,8 +21,10 @@ import java.util.Iterator;
  *          System.out.println(ai.{@link #next() next()});
  *      }
  * </pre>
- * 
- * @version $Id: KeyIterator.java 29 2006-11-03 16:56:32Z bailey $
+ *
+ * @param <K> the type parameter
+ * @param <V> the type parameter
+ * @version $Id : KeyIterator.java 29 2006-11-03 16:56:32Z bailey $
  * @author, 2001 duane a. bailey
  */
 class KeyIterator<K,V> extends AbstractIterator<K>
@@ -31,7 +33,7 @@ class KeyIterator<K,V> extends AbstractIterator<K>
      * The underlying iterator.
      * The slave iterator provides the key iterator values which
      * are Associations.  The key iterator returns only the key-portion
-     * of the Associations.     
+     * of the Associations.
      */
     protected Iterator<Association<K,V>> slave;
 
@@ -39,10 +41,9 @@ class KeyIterator<K,V> extends AbstractIterator<K>
      * Construct a new key iterator that filters the slave iterator,
      * an Association-returning iterator.
      *
+     * @param slave The slave iterator.
      * @pre slave is a fully reset iterator over Association elements
      * @post creates a new iterator that returns keys of slave iterator
-     * 
-     * @param slave The slave iterator.
      */
     @SuppressWarnings("unchecked")
     public <T extends Association<K,V>> KeyIterator(Iterator<T> slave)

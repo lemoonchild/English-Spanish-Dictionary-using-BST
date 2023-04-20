@@ -3,15 +3,16 @@
 
 package structure5;
 import java.util.Iterator;
+
 /**
  * An implementation of a stack, based on extensible arrays.  The head of the
  * stack is stored in the first position of the list, allowing the stack to grow
- * and shrink in constant time. This stack implementation is ideal for 
+ * and shrink in constant time. This stack implementation is ideal for
  * applications that require a dynamically resizable stack which occasionally takes
  * a time proportional to the its length to expand.
- * <P>
+ * <p>
  * Example usage:
- * <P>
+ * <p>
  * To reverse a string with a stack array, we would use the following:
  * <pre>
  * public static void main(String[] arguments)
@@ -19,7 +20,7 @@ import java.util.Iterator;
  *     if(arguments.length > 0){
  *         {@link StackVector} reverseStack = new {@link #StackVector()};
  *         String s = arguments[0];
- *          
+ *
  *         for(int i=0; i < s.length(); i++){
  *             reverseStack.{@link #push(Object) push(new Character(s.charAt(i)))};
  *         }
@@ -32,13 +33,14 @@ import java.util.Iterator;
  *     }
  * }
  * </pre>
- * @see Stack 
- * @see StackList 
+ *
+ * @param <E> the type parameter
+ * @version $Id : StackVector.java 22 2006-08-21 19:27:26Z bailey $
+ * @author, 2001 duane a. bailey
+ * @see Stack
+ * @see StackList
  * @see StackArray
  * @see AbstractStack
- *
- * @version $Id: StackVector.java 22 2006-08-21 19:27:26Z bailey $
- * @author, 2001 duane a. bailey
  */
 public class StackVector<E> extends AbstractStack<E> implements Stack<E>
 {
@@ -61,9 +63,8 @@ public class StackVector<E> extends AbstractStack<E> implements Stack<E>
      * Construct a stack with initial capacity
      * Vector will grow if the stack fills vector.
      *
-     * @post an empty stack with initial capacity of size is created
-     * 
      * @param size The initial capacity of the vector.
+     * @post an empty stack with initial capacity of size is created
      */
     public StackVector(int size)
     {

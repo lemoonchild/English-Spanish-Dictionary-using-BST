@@ -9,9 +9,9 @@ package structure5;
  * visited flags set and cleared. ComparableEdge differs from
  * edge, however, in that it requires that its lable be of a comparable
  * type.
- * <P>
+ * <p>
  * Typical usage:
- * <P>
+ * <p>
  * <pre>
  *     Graph g = new GraphListDirected();
  *     g.add("harry");
@@ -29,7 +29,9 @@ package structure5;
  *     ...
  * </pre>
  *
- * @version $Id: ComparableEdge.java 26 2006-08-24 14:29:13Z bailey $
+ * @param <V> the type parameter
+ * @param <E> the type parameter
+ * @version $Id : ComparableEdge.java 26 2006-08-24 14:29:13Z bailey $
  * @author, 2001 duane a. bailey
  * @see structure.Graph
  */
@@ -42,13 +44,11 @@ public class ComparableEdge<V,E extends Comparable<E>> extends Edge<V,E> impleme
      * on edge is any type, and may be null.
      * Edge is initially unvisited.
      *
-     * @post edge associates vtx1 and vtx2. labeled with label
-     *       directed if "directed" set true
-     *
-     * @param vtx1 The label of a vertex (source if directed).
-     * @param vtx2 The label of another vertex (destination if directed).
-     * @param label The label associated with the edge.
+     * @param vtx1     The label of a vertex (source if directed).
+     * @param vtx2     The label of another vertex (destination if directed).
+     * @param label    The label associated with the edge.
      * @param directed True iff this edge is directed.
+     * @post edge associates vtx1 and vtx2. labeled with label       directed if "directed" set true
      */
     public ComparableEdge(V vtx1, V vtx2, E label,
                 boolean directed)
@@ -63,10 +63,8 @@ public class ComparableEdge<V,E extends Comparable<E>> extends Edge<V,E> impleme
      * on edge is any type, and may be null.
      * Edge is initially unvisited.
      *
-     * @post edge associates vtx1 and vtx2. labeled with label.
-     *       directed if "directed" set true
-     *
      * @param e The edge to be used as the basis for a comparable edge
+     * @post edge associates vtx1 and vtx2. labeled with label.       directed if "directed" set true
      */
     public ComparableEdge(Edge<V,E> e)
     {

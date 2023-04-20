@@ -5,11 +5,11 @@ package structure5;
 
 /**
  * A private implementation of a vertex for use in graphs.  A vertex
- * is capable of holding a label and has a flag that can be set  
- * to mark it as visited.   
- * <P>
+ * is capable of holding a label and has a flag that can be set
+ * to mark it as visited.
+ * <p>
  * Typical Usage:
- * <P>
+ * <p>
  * <pre>
  *     Vertex v = new {@link #Vertex(Object) Vertex(someLabel)};
  *     //...several graph related operations occur
@@ -18,11 +18,12 @@ package structure5;
  *         v.{@link #visit()};
  *     }
  * </pre>
+ *
+ * @param <E> the type parameter
+ * @version $Id : Vertex.java 22 2006-08-21 19:27:26Z bailey $
+ * @author, 2001 duane a. bailey
  * @see GraphListVertex
  * @see GraphMatrixVertex
- *        
- * @version $Id: Vertex.java 22 2006-08-21 19:27:26Z bailey $
- * @author, 2001 duane a. bailey
  */
 class Vertex<E>
 {
@@ -38,9 +39,8 @@ class Vertex<E>
     /**
      * Construct a vertex with an associated label.
      *
-     * @post constructs unvisited vertex with label
-     * 
      * @param label A label to be associated with vertex.
+     * @post constructs unvisited vertex with label
      */
     public Vertex(E label)
     {
@@ -52,9 +52,8 @@ class Vertex<E>
     /**
      * Fetch the label associated with vertex.
      *
-     * @post returns user label associated w/vertex
-     * 
      * @return The label associated with vertex.
+     * @post returns user label associated w/vertex
      */
     public E label()
     {
@@ -64,9 +63,8 @@ class Vertex<E>
     /**
      * Test and set the visited flag.
      *
-     * @post returns, then marks vertex as being visited
-     * 
      * @return The value of the flag before marking
+     * @post returns, then marks vertex as being visited
      */
     public boolean visit()
     {
@@ -78,15 +76,14 @@ class Vertex<E>
     /**
      * Determine if the vertex has been visited.
      *
-     * @post returns true iff vertex has been visited
-     * 
      * @return True iff the vertex has been visited.
+     * @post returns true iff vertex has been visited
      */
     public boolean isVisited()
     {
         return visited;
     }
- 
+
     /**
      * Clears the visited flag.
      *

@@ -3,19 +3,20 @@
 
 package structure5;
 import java.util.Iterator;
+
 /**
- * An implementation of lists using circularly linked elements, 
+ * An implementation of lists using circularly linked elements,
  * similar to that of {@link java.util.LinkedList java.util.LinkedList}.
- * <p>       
+ * <p>
  * This class is an implementation of the {@link List} interface.
- * Operations accessing or modifying either the head or the tail of 
+ * Operations accessing or modifying either the head or the tail of
  * the list execute in constant time.
- * Circular lists are as space-efficient as singly linked lists, 
+ * Circular lists are as space-efficient as singly linked lists,
  * but tail-related operations are less costly.
  * <p>
  * Example usage:
- *
- * To place a copy of every unique parameter passed to a program into a 
+ * <p>
+ * To place a copy of every unique parameter passed to a program into a
  * CircularList,  we would use the following:
  * <pre>
  * public static void main({@link java.lang.String String[]} arguments)
@@ -29,7 +30,9 @@ import java.util.Iterator;
  *    System.out.println(argList);
  * }
  * </pre>
- * @version $Id: CircularList.java 31 2007-08-06 17:19:56Z bailey $
+ *
+ * @param <E> the type parameter
+ * @version $Id : CircularList.java 31 2007-08-06 17:19:56Z bailey $
  * @author, 2001 duane a. bailey
  * @see SinglyLinkedList
  * @see DoublyLinkedList
@@ -276,6 +279,8 @@ public class CircularList<E> extends AbstractList<E>
 
     /**
      * Accessor method for tail field
+     *
+     * @return the node
      */
     protected Node<E> getTail(){
         return tail;

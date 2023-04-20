@@ -1,10 +1,15 @@
 package Model;
+
+/**
+ * The type Tree factory.
+ */
 public class treeFactory {
-    
-     /**
-     * Diseño de fabrica según la selección de usuario 
-     * @param userOp Opcion del usuario 
-     * @return Tipo de arbol a utilizar por el usuario 
+
+    /**
+     * Diseño de fabrica según la selección de usuario
+     *
+     * @param userOp Opcion del usuario
+     * @return Tipo de arbol a utilizar por el usuario
      */
     public treeStructure getTypeMap(int userOp){
 
@@ -20,7 +25,7 @@ public class treeFactory {
                 typeMap = new mySplayTree(); 
                 break; 
             case 3: 
-                 
+                 typeMap = new AVLTree();
                 break;
 
             default: 

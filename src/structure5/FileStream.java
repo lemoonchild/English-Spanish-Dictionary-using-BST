@@ -6,7 +6,7 @@ import java.util.Scanner;
 
 /**
  * This class provides a way to connect text files to scanners,
- * without worrying about Exceptions.  
+ * without worrying about Exceptions.
  * <p>
  * Typical usage:
  *
@@ -17,7 +17,7 @@ import java.util.Scanner;
  *         System.out.println(scanner.nextLine());
  *     }
  * </pre>
- * 
+ * <p>
  * All the methods in this class are provided so that a Scanner can
  * read data from a file.  You won't need to use them if you use a
  * Scanner to read files (which is highly recommended).
@@ -32,6 +32,7 @@ public class FileStream extends InputStream {
      *     FileStream input = new FileStream("data.txt");
      * </pre>
      *
+     * @param name the name
      */
     public FileStream(String name) {
         try {
@@ -98,6 +99,11 @@ public class FileStream extends InputStream {
         }
     }
 
+    /**
+     * Main.
+     *
+     * @param args the args
+     */
     public static void main(String args[]) {
         FileStream in = new FileStream(args[0]);
         Scanner s = new Scanner(in);

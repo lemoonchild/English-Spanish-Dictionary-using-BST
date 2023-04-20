@@ -4,13 +4,14 @@
 package structure5;
 import java.util.Iterator;
 import java.util.Comparator;
+
 /**
  * A class that implements a collection of values that are kept in order.
  * Base values must be comparable.  Unlike Lists there is no notion of head
  * or tail.
- * <P>
+ * <p>
  * Example Usage:
- * <P>
+ * <p>
  * To determine the effect of the original Starwars&trade; movie on the careers
  * of its stars, we could place ComparableAssociations between each star's
  * name and the number of movies they have been in since Starwars&trade;
@@ -19,26 +20,27 @@ import java.util.Comparator;
  * public static void main(String[] argv){
  *      //instantiate an ordered vector
  *      OrderedList<ComparableAssociation<Integer,String>> v = new {@link #OrderedList<ComparableAssociation<Integer,String>>()};
- *      
+ *
  *      //add the cast members of the original star wars along with
  *      //the number of films in which the have subsequently appeared
  *      v.{@link #add(Object) add(new ComparableAssociation<Integer,String>(new Integer(12),"Sir Alec Guiness"))};
  *      v.{@link #add(Object) add(new ComparableAssociation<Integer,String>(new Integer(24),"Carrie Fisher"))};
- *      v.{@link #add(Object) add(new ComparableAssociation<Integer,String>(new Integer(28),"Harrison Ford"))}; 
+ *      v.{@link #add(Object) add(new ComparableAssociation<Integer,String>(new Integer(28),"Harrison Ford"))};
  *      v.{@link #add(Object) add(new ComparableAssociation<Integer,String>(new Integer(28),"Mark Hamill"))};
  *
  *      //print out the results
  *      for(Iterator<ComparableAssociation<Integer,String>> i = v.{@link #iterator()}; i.hasNext();){
  *          ComparableAssociation<Integer,String> actor = i.next();
- *          System.out.println(actor.getValue() + " has been in " + 
- *                             actor.getKey() + " movies since Star Wars"); 
+ *          System.out.println(actor.getValue() + " has been in " +
+ *                             actor.getKey() + " movies since Star Wars");
  *      }
  *   }
  * </pre>
- * @see structure.Vector
  *
- * @version $Id: OrderedList.java 31 2007-08-06 17:19:56Z bailey $
+ * @param <E> the type parameter
+ * @version $Id : OrderedList.java 31 2007-08-06 17:19:56Z bailey $
  * @author, 2001 duane a. bailey
+ * @see structure.Vector
  */
 public class OrderedList<E extends Comparable<E>>
     extends AbstractStructure<E> implements OrderedStructure<E>

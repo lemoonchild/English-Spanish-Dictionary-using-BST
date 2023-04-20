@@ -5,12 +5,12 @@ package structure5;
 /**
  * This class implements a priority queue based on a traditional
  * array-based heap.  Most heap operations, including insert and remove,
- * execute in logarithmic time, but the minimum element can be returned 
- * in constant time. 
+ * execute in logarithmic time, but the minimum element can be returned
+ * in constant time.
  *
- * <P>
+ * <p>
  * Example usage:
- * <P>
+ * <p>
  * To print out a list of programmers sorted by age we could use the following:
  * <pre>
  * public static void main(String[] argv){
@@ -25,18 +25,20 @@ package structure5;
  *      programmers.add(new ComparableAssociation(new Integer(19), "Chris"));
  *      programmers.add(new ComparableAssociation(new Integer(20), "Shimon"));
  *      programmers.add(new ComparableAssociation(new Integer(21), "Diane"));
- *      programmers.add(new ComparableAssociation(new Integer(21), "Lida"));    
- *      programmers.add(new ComparableAssociation(new Integer(20), "Rob"));     
- *      programmers.add(new ComparableAssociation(new Integer(20), "Sean"));    
+ *      programmers.add(new ComparableAssociation(new Integer(21), "Lida"));
+ *      programmers.add(new ComparableAssociation(new Integer(20), "Rob"));
+ *      programmers.add(new ComparableAssociation(new Integer(20), "Sean"));
  *
- *      //print out programmers 
+ *      //print out programmers
  *      while(!programmers.{@link #isEmpty()}){
  *          ComparableAssociation p = (ComparableAssociation)programmers.{@link #remove()};
  *          System.out.println(p.getValue() + " is " + p.getKey() + " years old.");
  *      }
  * }
  * </pre>
- * @version $Id: VectorHeap.java 22 2006-08-21 19:27:26Z bailey $
+ *
+ * @param <E> the type parameter
+ * @version $Id : VectorHeap.java 22 2006-08-21 19:27:26Z bailey $
  * @author, 2001 duane a. bailey
  */
 public class VectorHeap<E extends Comparable<E>> implements PriorityQueue<E>
@@ -59,6 +61,7 @@ public class VectorHeap<E extends Comparable<E>> implements PriorityQueue<E>
     /**
      * Construct a new priority queue from an unordered vector
      *
+     * @param v the v
      * @post constructs a new priority queue from an unordered vector
      */
     public VectorHeap(Vector<E> v)
@@ -73,6 +76,7 @@ public class VectorHeap<E extends Comparable<E>> implements PriorityQueue<E>
 
     /**
      * Returns parent index
+     *
      * @param i a node index
      * @return parent of node at i
      * @pre 0 <= i < size
@@ -85,6 +89,7 @@ public class VectorHeap<E extends Comparable<E>> implements PriorityQueue<E>
 
     /**
      * Returns left child index.
+     *
      * @param i a node index
      * @return left child of node at i
      * @pre 0 <= i < size
@@ -97,6 +102,7 @@ public class VectorHeap<E extends Comparable<E>> implements PriorityQueue<E>
 
     /**
      * Returns right child index.
+     *
      * @param i a node index
      * @return right child of node at i
      * @pre 0 <= i < size
@@ -165,6 +171,7 @@ public class VectorHeap<E extends Comparable<E>> implements PriorityQueue<E>
 
     /**
      * Moves node upward to appropriate position within heap.
+     *
      * @param leaf Index of the node in the heap.
      * @pre 0 <= leaf < size
      * @post moves node at index leaf up to appropriate position
@@ -185,10 +192,10 @@ public class VectorHeap<E extends Comparable<E>> implements PriorityQueue<E>
 
     /**
      * Moves node downward, into appropriate position within subheap.
+     *
      * @param root Index of the root of the subheap.
      * @pre 0 <= root < size
-     * @post moves node at index root down 
-     *   to appropriate position in subtree
+     * @post moves node at index root down    to appropriate position in subtree
      */
     protected void pushDownRoot(int root)
     {

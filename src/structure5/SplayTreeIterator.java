@@ -2,16 +2,16 @@
 // (c) 1998, 2001 duane a. bailey
 
 package structure5;
+
 /**
- * 
  * An iterator for traversing splay trees constructed from
  * BinaryTrees.  The iterator performs minimal work before
  * traversal.  Every node is considered after every left descendant,
  * but before any right descendant.  SplayTreeIterator finishes when
  * all descendants of the start node have been considered.
- * <P>
+ * <p>
  * Example usage:
- * <P>
+ * <p>
  * <pre>
  *      SplayTree t = new SplayTree();
  *      // ...tree is grown
@@ -25,7 +25,8 @@ package structure5;
  *      { .... }
  * </pre>
  *
- * @version $Id: SplayTreeIterator.java 22 2006-08-21 19:27:26Z bailey $
+ * @param <E> the type parameter
+ * @version $Id : SplayTreeIterator.java 22 2006-08-21 19:27:26Z bailey $
  * @author, 2001 duane a. bailey
  */
 class SplayTreeIterator<E extends Comparable<E>> extends AbstractIterator<E>
@@ -34,6 +35,9 @@ class SplayTreeIterator<E extends Comparable<E>> extends AbstractIterator<E>
      * A reference to the root of a splay tree.
      */
     protected BinaryTree<E> tree; // node of splay tree, root computed
+    /**
+     * The Leaf.
+     */
     protected final BinaryTree<E> LEAF;
     /**
      * The current node being considered in tree.
@@ -44,13 +48,13 @@ class SplayTreeIterator<E extends Comparable<E>> extends AbstractIterator<E>
     // for which the path goes left are on the stack
 
     /**
-     * Construct an iterator that traverses the binary search 
+     * Construct an iterator that traverses the binary search
      * tree based at the root.
      *
+     * @param root The root of the subtree to be traversed.
+     * @param leaf the leaf
      * @pre root is the root of the tree to be traversed
      * @post constructs a new iterator to traverse splay tree
-     * 
-     * @param root The root of the subtree to be traversed.
      */
     public SplayTreeIterator(BinaryTree<E> root, BinaryTree<E> leaf)
     {

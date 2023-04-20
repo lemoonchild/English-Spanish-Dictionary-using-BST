@@ -10,7 +10,7 @@ package structure5;
  * right cousin.
  * LevelOrderIterator finishes when
  * all descendants of the start node have been considered.
- * <P>
+ * <p>
  * Example usage:
  * <pre>
  *      {@link structure.BinaryTree BinaryTree} t = new {@link structure.BinaryTree#BinaryTree() BinaryTree()};
@@ -25,7 +25,8 @@ package structure5;
  *      { .... }
  * </pre>
  *
- * @version $Id: BTLevelorderIterator.java 22 2006-08-21 19:27:26Z bailey $
+ * @param <E> the type parameter
+ * @version $Id : BTLevelorderIterator.java 22 2006-08-21 19:27:26Z bailey $
  * @author, 2001 duane a. bailey
  */
 class BTLevelorderIterator<E> extends AbstractIterator<E>
@@ -34,7 +35,7 @@ class BTLevelorderIterator<E> extends AbstractIterator<E>
      * The root of the subtree being traversed.
      */
     protected BinaryTree<E> root; // root of traversed subtree
-    /** 
+    /**
      * Queue of nodes that maintain the state of the iterator.
      */
     protected Queue<BinaryTree<E>> todo;  // queue of unvisited relatives
@@ -42,9 +43,8 @@ class BTLevelorderIterator<E> extends AbstractIterator<E>
     /**
      * Construct a new level-order iterator of a tree.
      *
-     * @post Constructs an iterator to traverse in level order
-     * 
      * @param root The root of the subtree to be traversed.
+     * @post Constructs an iterator to traverse in level order
      */
     public BTLevelorderIterator(BinaryTree<E> root)
     {

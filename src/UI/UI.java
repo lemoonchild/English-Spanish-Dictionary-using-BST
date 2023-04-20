@@ -5,13 +5,31 @@ import Model.*;
 import Controller.controllerDictionary;
 import Controller.readFile;
 
+/**
+ * The type Ui.
+ */
 public class UI {
-    
-    Scanner sc = new Scanner(System.in); 
+
+    /**
+     * The Sc.
+     */
+    Scanner sc = new Scanner(System.in);
+    /**
+     * The Tree factory.
+     */
     treeFactory treeFactory = new treeFactory();
-    readFile readFile = new readFile(); 
+    /**
+     * The Read file.
+     */
+    readFile readFile = new readFile();
+    /**
+     * The Controller.
+     */
     controllerDictionary controller = new controllerDictionary();
-    
+
+    /**
+     * User menu.
+     */
     public void userMenu(){
 
         System.out.println("\n¡Bienvenid@ al diccionario Ingles-Español!");

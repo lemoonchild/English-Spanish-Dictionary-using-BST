@@ -9,7 +9,8 @@ package structure5;
  * but before any right descendant.  AbstractIterator finishes when
  * all descendants of the start node have been considered.
  *
- * @version $Id: RedBlackIterator.java 22 2006-08-21 19:27:26Z bailey $
+ * @param <E> the type parameter
+ * @version $Id : RedBlackIterator.java 22 2006-08-21 19:27:26Z bailey $
  * @author, 2001 duane a. bailey & evan s. sandhaus
  */
 class RedBlackIterator<E extends Comparable<E>> extends AbstractIterator<E>
@@ -20,7 +21,7 @@ class RedBlackIterator<E extends Comparable<E>> extends AbstractIterator<E>
      */
     protected RedBlackTree<E> root; // root of subtree to be traversed
 
-    /** 
+    /**
      * Stack of nodes that maintain the state of the iterator.
      */
     protected Stack<RedBlackTree<E>> todo; // stack of unvisited ancestors of current
@@ -29,9 +30,8 @@ class RedBlackIterator<E extends Comparable<E>> extends AbstractIterator<E>
     /**
      * Construct a new inorder iterator of a tree.
      *
-     * @post Constructs an iterator to traverse inorder
-     * 
      * @param root The root of the subtree to be traversed.
+     * @post Constructs an iterator to traverse inorder
      */
     public RedBlackIterator(RedBlackTree<E> root){
         todo = new StackList<RedBlackTree<E>>();

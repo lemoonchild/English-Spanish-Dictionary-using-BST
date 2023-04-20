@@ -2,6 +2,7 @@
 // (c) 1998, 2001 duane a. bailey
 
 package structure5;
+
 /**
  * A private class for implementing an iterator over a Vector.
  * <p>
@@ -23,7 +24,9 @@ package structure5;
  *         }
  *     }
  * </pre>
- * @version $Id: VectorIterator.java 22 2006-08-21 19:27:26Z bailey $
+ *
+ * @param <E> the type parameter
+ * @version $Id : VectorIterator.java 22 2006-08-21 19:27:26Z bailey $
  * @author, 2001 duane a. bailey
  */
 class VectorIterator<E> extends AbstractIterator<E>
@@ -40,9 +43,8 @@ class VectorIterator<E> extends AbstractIterator<E>
     /**
      * Construct a vector iterator to traverse vector v
      *
-     * @post constructs an initialized iterator associated with v
-     * 
      * @param v The underlying vector.
+     * @post constructs an initialized iterator associated with v
      */
     public VectorIterator(Vector<E> v)
     {

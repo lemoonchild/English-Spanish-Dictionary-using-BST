@@ -6,15 +6,15 @@ import java.util.Iterator;
 import java.util.Map.Entry;
 
 /**
- * An implementation of an ordered dictionary.  Key-value pairs are 
+ * An implementation of an ordered dictionary.  Key-value pairs are
  * kept in the structure in order.  To accomplish this, the keys of the
  * table must be comparable.
- * <P>
+ * <p>
  * Example Usage:
- * <P>
- * To create an alphebetized dictionary by reading a collection of words and 
+ * <p>
+ * To create an alphebetized dictionary by reading a collection of words and
  * definitions from System.in we could use the following:
- * <P> 
+ * <p>
  * <pre>
  * public static void main (String[] argv){
  *      {@link OrderedMap} dict = new {@link #Table()};
@@ -25,13 +25,16 @@ import java.util.Map.Entry;
  *          word = r.readLine();
  *          System.out.println("Enter a definition: ");
  *          def = r.readLine();
- *          dict.{@link #put(Object,Object) put(word,def)};
+ *          dict.{@link #put(Object, Object) put(word,def)};
  *          System.out.println("Enter a word: ");
  *      }
  *      System.out.println(dict);
  * }
  * </pre>
- * @version $Id: Table.java 22 2006-08-21 19:27:26Z bailey $
+ *
+ * @param <K> the type parameter
+ * @param <V> the type parameter
+ * @version $Id : Table.java 22 2006-08-21 19:27:26Z bailey $
  * @author, 2001 duane a. bailey
  * @see Comparable
  */
@@ -53,6 +56,11 @@ public class Table<K extends Comparable<K>,V> extends AbstractMap<K,V> implement
         data = new SplayTree<ComparableAssociation<K,V>>();
     }
 
+    /**
+     * Instantiates a new Table.
+     *
+     * @param other the other
+     */
     public Table(Table<K,V> other)
     {
         data = new SplayTree<ComparableAssociation<K,V>>();
@@ -140,9 +148,8 @@ public class Table<K extends Comparable<K>,V> extends AbstractMap<K,V> implement
      * be consistent with that of the iterator from elements, provided
      * the table is not modified.
      *
-     * @post returns an iterator for traversing keys of table
-     * 
      * @return An iterator over the keys of the table.
+     * @post returns an iterator for traversing keys of table
      */
     public Iterator<K> keys()
     {
@@ -155,9 +162,8 @@ public class Table<K extends Comparable<K>,V> extends AbstractMap<K,V> implement
      * be consistent with that of the iterator returned from keys, provided
      * the table is not modified.
      *
-     * @post returns an iterator for traversing values in table
-     * 
      * @return An iterator over the values of the table.
+     * @post returns an iterator for traversing values in table
      */
     public Iterator<V> iterator()
     {
@@ -315,7 +321,13 @@ public class Table<K extends Comparable<K>,V> extends AbstractMap<K,V> implement
         s.append(">");
         return s.toString();
     }
-        public static void main (String[] argv){
+
+    /**
+     * Main.
+     *
+     * @param argv the argv
+     */
+    public static void main (String[] argv){
         OrderedMap<String,String> dict = new Table<String,String>();
         ReadStream r = new ReadStream();
         String word, def;

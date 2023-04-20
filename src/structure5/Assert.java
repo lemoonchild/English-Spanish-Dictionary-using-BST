@@ -12,7 +12,7 @@ package structure5;
  * perform a verification of the condition, and do nothing (aside from
  * testing side-effects) if the condition holds.  If the condition fails,
  * however, the assertion throws an exception and prints the associated
- * message, that describes the condition that failed.  Basic support is 
+ * message, that describes the condition that failed.  Basic support is
  * provided for testing general conditions, and pre- and postconditions.
  * There is also a facility for throwing a failed condition for code that
  * should not be executed.
@@ -23,8 +23,8 @@ package structure5;
  * The debugging facilities provide control that is slightly improved
  * over print statements.
  *
+ * @version $Id : Assert.java 22 2006-08-21 19:27:26Z bailey $
  * @author, 2001 duane a. bailey
- * @version $Id: Assert.java 22 2006-08-21 19:27:26Z bailey $
  * @since Java Structures, 1st edition
  */
 public class Assert
@@ -56,9 +56,9 @@ public class Assert
      * Explictly set the debugging level (0 = none)
      *
      * @param level the desired level of verosity
+     * @return the old level
      * @pre level >= 0
      * @post the level of debugging is set to <code>level</code>
-     * @return the old level
      */
     public static int debugLevel(int level)
     {
@@ -81,7 +81,7 @@ public class Assert
     /**
      * Set up a debugging message at a specific level.
      *
-     * @param level the level that triggers the printing of message
+     * @param level   the level that triggers the printing of message
      * @param message the message to be printed at the desired level
      * @pre level >= 1 and message is non-null
      * @post prints message if debugging level is <code>level</code> or more
@@ -96,7 +96,7 @@ public class Assert
      * indicates that a precondition failed.  A precondition is something
      * you require to be true for the method to be executed correctly.
      *
-     * @param test A boolean expression describing precondition.
+     * @param test    A boolean expression describing precondition.
      * @param message A string describing precondition.
      * @pre Result of precondition test
      * @post Does nothing if test true, otherwise abort w/message
@@ -112,7 +112,7 @@ public class Assert
      * something expected to be true after a method invocation,
      * provided the preconditions are met.
      *
-     * @param test A boolean expression describing postcondition.
+     * @param test    A boolean expression describing postcondition.
      * @param message A string describing postcondition.
      * @pre Result of postcondition test
      * @post Does nothing if test true, otherwise abort w/message
@@ -130,7 +130,7 @@ public class Assert
      * be anything that needs to be verified during the course of program
      * execution.
      *
-     * @param test A boolean expression describing the condition.
+     * @param test    A boolean expression describing the condition.
      * @param message A string describing the condition.
      * @pre result of general condition test
      * @post does nothing if test true, otherwise abort w/message
@@ -146,7 +146,7 @@ public class Assert
      * be anything that needs to be verified during the course of program
      * execution.
      *
-     * @param test A boolean expression describing the condition.
+     * @param test    A boolean expression describing the condition.
      * @param message A string describing the condition.
      * @pre result of an invariant test
      * @post does nothing if test true, otherwise abort w/message

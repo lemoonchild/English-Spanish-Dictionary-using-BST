@@ -6,16 +6,16 @@ import java.util.Iterator;
 
 /**
  * An implementation of queues based on circular lists.
- * The head of the queue is stored at the head of the list, allowing the queue to 
- * grow and shrink in constant time. 
+ * The head of the queue is stored at the head of the list, allowing the queue to
+ * grow and shrink in constant time.
  * This queue implementation is ideal for applications that require a dynamically
  * resizable queue that resizes in constant time.
- * <P>
+ * <p>
  * Example usage:
- * <P>
+ * <p>
  * To compute the sum of the unicode value of every character in the standard input
  * we could use the following:
- * <P>
+ * <p>
  * <pre>
  * public static void main(String[] arguments)
  * {
@@ -38,10 +38,12 @@ import java.util.Iterator;
  *     System.out.println("Total Value: " + unicodeSum);
  * }
  * </pre>
+ *
+ * @param <E> the type parameter
+ * @version $Id : QueueList.java 22 2006-08-21 19:27:26Z bailey $
+ * @author, 2001 duane a. bailey
  * @see QueueArray
  * @see QueueVector
- * @version $Id: QueueList.java 22 2006-08-21 19:27:26Z bailey $
- * @author, 2001 duane a. bailey
  */
 public class QueueList<E> extends AbstractQueue<E> implements Queue<E>
 {

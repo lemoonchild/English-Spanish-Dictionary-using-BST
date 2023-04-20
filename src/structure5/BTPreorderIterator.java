@@ -6,9 +6,9 @@ package structure5;
 /**
  * This class implements an iterator that traverses a tree in pre-order.
  * Each node is considered before its descendants.
- * <P>
+ * <p>
  * Example usage:
- * <P>
+ * <p>
  * <pre>
  *      {@link structure.BinaryTree BinaryTree} t = new {@link structure.BinaryTree#BinaryTree() BinaryTree()};
  *      // ...tree is grown
@@ -22,7 +22,8 @@ package structure5;
  *      { .... }
  * </pre>
  *
- * @version $Id: BTPreorderIterator.java 22 2006-08-21 19:27:26Z bailey $
+ * @param <E> the type parameter
+ * @version $Id : BTPreorderIterator.java 22 2006-08-21 19:27:26Z bailey $
  * @author, 2001 duane a. bailey
  */
 class BTPreorderIterator<E> extends AbstractIterator<E>
@@ -39,9 +40,8 @@ class BTPreorderIterator<E> extends AbstractIterator<E>
     /**
      * Constructs a pre-order traversal of subtree rooted at root.
      *
-     * @post constructs an iterator to traverse in preorder
-     * 
      * @param root Root of subtree to be traversed.
+     * @post constructs an iterator to traverse in preorder
      */
     public BTPreorderIterator(BinaryTree<E> root)
     {

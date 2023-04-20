@@ -6,9 +6,9 @@ package structure5;
  * A vector-based implementation of a priority queue.  Similar to
  * an ordered vector, except that only the smallest value may be
  * accessed in this structure.
- * <P>
+ * <p>
  * Example usage:
- * <P>
+ * <p>
  * To print out a list of programmers sorted by age we could use the following:
  * <pre>
  * public static void main(String[] argv){
@@ -21,11 +21,11 @@ package structure5;
  *      programmers.add(new ComparableAssociation(new Integer(19), "Chris"));
  *      programmers.add(new ComparableAssociation(new Integer(20), "Shimon"));
  *      programmers.add(new ComparableAssociation(new Integer(21), "Diane"));
- *      programmers.add(new ComparableAssociation(new Integer(21), "Lida"));    
- *      programmers.add(new ComparableAssociation(new Integer(20), "Rob"));     
- *      programmers.add(new ComparableAssociation(new Integer(20), "Sean"));    
+ *      programmers.add(new ComparableAssociation(new Integer(21), "Lida"));
+ *      programmers.add(new ComparableAssociation(new Integer(20), "Rob"));
+ *      programmers.add(new ComparableAssociation(new Integer(20), "Sean"));
  *
- *      //print out programmers 
+ *      //print out programmers
  *      while(!programmers.{@link #isEmpty()}){
  *          ComparableAssociation p = (ComparableAssociation)programmers.{@link #remove()};
  *          System.out.println(p.getValue() + " is " + p.getKey() + " years old.");
@@ -33,9 +33,10 @@ package structure5;
  * }
  * </pre>
  *
- * @see structure.OrderedVector
- * @version $Id: PriorityVector.java 22 2006-08-21 19:27:26Z bailey $
+ * @param <E> the type parameter
+ * @version $Id : PriorityVector.java 22 2006-08-21 19:27:26Z bailey $
  * @author, 2001 duane a. bailey
+ * @see structure.OrderedVector
  */
 public class PriorityVector<E extends Comparable<E>> implements PriorityQueue<E>
 {
@@ -94,6 +95,12 @@ public class PriorityVector<E extends Comparable<E>> implements PriorityQueue<E>
         data.add(position,value);
     }
 
+    /**
+     * Index of int.
+     *
+     * @param target the target
+     * @return the int
+     */
     protected int indexOf(E target)
     {
         E midValue;

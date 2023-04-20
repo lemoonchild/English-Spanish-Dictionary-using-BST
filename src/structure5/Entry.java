@@ -1,25 +1,31 @@
 package structure5;
 import java.util.Map;
+
 /**
  * An implementation of the the java.util.Map.Entry interface, Entry
  * is a simple key value pair, from which both the key and the value
  * can be accessed. {@link structure.Association} and related classes
- * also implement the Map interface and have expanded functionality. 
- * <P>
+ * also implement the Map interface and have expanded functionality.
+ * <p>
  * Typical Usage:
- * <P>
+ * <p>
  * <pre>
  * ...
- *     Entry e = new {@link #Entry(Object,Object) Entry(aKey, aValue)};
+ *     Entry e = new {@link #Entry(Object, Object) Entry(aKey, aValue)};
  *     Object key = e.{@link #getKey()};
  *     Object value = e.{@link #getValue()};
  *     e.{@link #setValue(Object) setValue(newValue)};
  * ...
  * </pre>
- * 
+ *
+ * @param <K> the type parameter
+ * @param <V> the type parameter
  */
 public class Entry<K,V> implements java.util.Map.Entry<K,V>
 {
+    /**
+     * The The key.
+     */
     protected K theKey; // the key of the key-value pair
     /**
      * The mutable value.  An arbitrary object.
@@ -29,11 +35,10 @@ public class Entry<K,V> implements java.util.Map.Entry<K,V>
     /**
      * Constructs a pair from a key and value.
      *
+     * @param key   A non-null object.
+     * @param value A (possibly null) object.
      * @pre Key is non-null
      * @post Constructs a key-value pair
-     * 
-     * @param key A non-null object.
-     * @param value A (possibly null) object.
      */
     public Entry(K key, V value)
     {
@@ -45,10 +50,9 @@ public class Entry<K,V> implements java.util.Map.Entry<K,V>
     /**
      * Constructs a pair from a key; value is null.
      *
+     * @param key A non-null key value.
      * @pre Key is non-null
      * @post Constructs a key-value pair
-     * 
-     * @param key A non-null key value.
      */
     public Entry(K key)
     {

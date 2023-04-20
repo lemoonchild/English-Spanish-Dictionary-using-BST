@@ -6,9 +6,9 @@ import java.util.Iterator;
  * No order is guaranteed.  This iterator is not publically accessable
  * and is used to implement ChainedHashtable's key and value iterators.
  * This iteration returns objects that are instances of {@link Association}.
- * <P>
+ * <p>
  * Typical use:
- * <P>
+ * <p>
  * <pre>
  *      ChainedHashtable h = new ChainedHashtable();
  *      // ...hashtable gets built up...
@@ -17,9 +17,11 @@ import java.util.Iterator;
  *      {
  *          System.out.println(ai.{@link #next() next()});
  *      }
- * </pre> 
+ * </pre>
  *
- * @version $Id: ChainedHashtableIterator.java 22 2006-08-21 19:27:26Z bailey $
+ * @param <K> the type parameter
+ * @param <V> the type parameter
+ * @version $Id : ChainedHashtableIterator.java 22 2006-08-21 19:27:26Z bailey $
  * @author, 2001 duane a. bailey
  */
 class ChainedHashtableIterator<K,V> extends AbstractIterator<Association<K,V>>
@@ -36,8 +38,8 @@ class ChainedHashtableIterator<K,V> extends AbstractIterator<Association<K,V>>
     /**
      * Construct an iterator over a chained hashtable.
      *
-     * @post constructs a new hash table iterator
      * @param table The array of lists to be traversed.
+     * @post constructs a new hash table iterator
      */
     public ChainedHashtableIterator(Vector<List<Association<K,V>>> table)
     {
