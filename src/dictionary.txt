@@ -13,7 +13,7 @@ house,casa
 car,coche
 book,libro
 computer,computadora
-music,música
+music,musica
 water,agua
 food,comida
 time,tiempo
